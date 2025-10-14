@@ -1,381 +1,657 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="th">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Internship Bootcamp - Development Process</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background: #f9f9f9;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        overflow: hidden;
-        font-size: 1.5rem;
-      }
-      .slide {
-        background: white;
-        padding: 40px;
-        width: 90%;
-        max-width: 1000px;
-        border-radius: 12px;
-        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-        opacity: 0;
-        transform: translateX(75px);
-        transition: opacity 0.3s ease, transform 0.9s ease;
-        position: absolute;
-      }
-      .slide.active {
-        opacity: 1;
-        transform: translateY(0);
-        position: relative;
-      }
-      .slide h1 {
-        font-size: 3rem;
-        margin-top: 0;
-      }
-      .slide h2 {
-        font-size: 2.4rem;
-        margin-top: 0;
-      }
-      ul {
-        padding-left: 30px;
-      }
-      .nav-buttons {
-        margin-top: 20px;
-        position: fixed;
-        bottom: 30px;
-        display: flex;
-        gap: 10px;
-      }
-      .nav-buttons button {
-        padding: 16px 32px;
-        font-size: 1.2rem;
-        border: none;
-        border-radius: 6px;
-        background-color: #007bff;
-        color: white;
-        cursor: pointer;
-      }
-      .nav-buttons button:disabled {
-        background-color: #cccccc;
-        cursor: not-allowed;
-      }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind = {
+        config: {
+          theme: {
+            extend: {
+              fontFamily: {
+                sans: ["Inter", "system-ui", "sans-serif"],
+              },
+              boxShadow: {
+                panel: "0 40px 140px -50px rgba(15, 23, 42, 0.65)",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com?plugins=typography&version=3.4.13"></script>
   </head>
-  <body>
-    <div class="slide active">
-      <h1>🎓 Internship Bootcamp</h1>
-      <h2><strong>Development Process</strong></h2>
-      <p>Banana Coding Co., Ltd. - Pratpong Muaengwong</p>
+  <body
+    class="relative min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100 antialiased"
+  >
+    <div class="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+      <div
+        class="absolute -left-10 top-[-160px] h-80 w-80 rounded-full bg-sky-500/20 blur-[120px] sm:h-[420px] sm:w-[420px]"
+      ></div>
+      <div
+        class="absolute bottom-[-160px] right-[-100px] h-96 w-96 rounded-full bg-indigo-500/20 blur-[130px] sm:h-[480px] sm:w-[480px]"
+      ></div>
     </div>
 
-    <div class="slide">
-      <h2>🗂️ Agenda</h2>
-      <ul>
-        <li>🏢 แนะนำบริษัท และเพื่อนร่วมทีม</li>
-        <li>👥 บทบาทของแต่ละตำแหน่งในทีม</li>
-        <li>🛠️ แนะนำ Tools ที่ใช้ในการทำงาน</li>
-        <li>🔁 เข้าใจกระบวนการ Agile Process</li>
-        <li>📦 การวางแผน Sprint และการส่งมอบงาน</li>
-        <li>🧠 กิจกรรม Agile Simulation</li>
-        <li>❓ Q&A + แชร์ประสบการณ์การทำงาน</li>
-      </ul>
-    </div>     
+    <div
+      class="relative mx-auto flex min-h-screen max-w-6xl flex-col gap-6 px-4 pt-12 pb-8 sm:px-6 lg:gap-8 lg:pt-14 lg:pb-10"
+    >
+      <main
+        class="relative flex flex-1 items-center justify-center px-3 pb-10 sm:px-6 lg:px-8"
+        aria-live="polite"
+        aria-label="เนื้อหาการนำเสนอ"
+      >
+        <div class="relative w-full max-w-4xl overflow-hidden">
+          <section
+            class="slide relative flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 pointer-events-auto translate-x-0 md:translate-x-0 scale-100 md:scale-100 z-20"
+          >
+            <div
+              class="prose prose-lg prose-slate mx-auto max-w-3xl text-center prose-headings:font-semibold prose-h1:text-5xl prose-h1:leading-tight prose-h2:mt-0 prose-h2:text-3xl prose-p:text-slate-600"
+            >
+              <h1>🎓 Internship Bootcamp</h1>
+              <h2><strong>Development Process</strong></h2>
+              <p>Banana Coding Co., Ltd. - Pratpong Muaengwong</p>
+            </div>
+          </section>
 
-    <div class="slide">
-      <h2>👥 Our Team</h2>
-      <ul>
-        <li>👨‍💼 Project Manager</li>
-        <li>👨‍💻 Developer</li>
-        <li>🎨 Designer</li>
-        <li>🚀 DevOps</li>
-        <li>💡 Tester</li>
-      </ul>
-    </div>
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+          >
+            <div
+              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
+            >
+              <h2>🗂️ Agenda</h2>
+              <ul>
+                <li>🏢 แนะนำบริษัท และเพื่อนร่วมทีม</li>
+                <li>👥 บทบาทของแต่ละตำแหน่งในทีม</li>
+                <li>🛠️ แนะนำ Tools ที่ใช้ในการทำงาน</li>
+                <li>🔁 เข้าใจกระบวนการ Agile Process</li>
+                <li>📦 การวางแผน Sprint และการส่งมอบงาน</li>
+                <li>🧠 กิจกรรม Agile Simulation</li>
+                <li>❓ Q&A + แชร์ประสบการณ์การทำงาน</li>
+              </ul>
+            </div>
+          </section>
 
-    <div class="slide">
-      <h2>👨‍💼 Project Manager</h2>
-      <p>
-        Project Manager หรือ PM คือคนที่คุมภาพรวมของโปรเจกต์
-        คอยประสานงานระหว่างทีมและลูกค้า
-      </p>
-      <ul>
-        <li>วางแผน Sprint และ Timeline</li>
-        <li>จัดลำดับความสำคัญของงาน (Prioritize)</li>
-        <li>ติดตามความคืบหน้าของโปรเจกต์</li>
-        <li>สื่อสารกับลูกค้าและ Stakeholders</li>
-        <li>ช่วยแก้ปัญหาและตัดสินใจเมื่อมีอุปสรรค</li>
-      </ul>
-    </div>
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+          >
+            <div
+              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
+            >
+              <h2>👥 Our Team</h2>
+              <ul>
+                <li>👨‍💼 Project Manager</li>
+                <li>👨‍💻 Developer</li>
+                <li>🎨 Designer</li>
+                <li>🚀 DevOps</li>
+                <li>💡 Tester</li>
+              </ul>
+            </div>
+          </section>
 
-    <div class="slide">
-      <h2>👨‍💻 Developer</h2>
-      <p>
-        นักพัฒนาซอฟต์แวร์ (Dev)
-        มีหน้าที่ในการเขียนโค้ดให้ระบบทำงานตามที่ออกแบบไว้
-      </p>
-      <ul>
-        <li>แปลง Requirement เป็นโค้ด</li>
-        <li>เขียนฟีเจอร์ใหม่และแก้ไขบั๊ก</li>
-        <li>ใช้ Git สำหรับ version control</li>
-        <li>ทำงานร่วมกับ Designer และ Tester</li>
-        <li>Review โค้ดของเพื่อนร่วมทีม</li>
-      </ul>
-    </div>
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+          >
+            <div
+              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
+            >
+              <h2>👨‍💼 Project Manager</h2>
+              <p>
+                Project Manager หรือ PM คือคนที่คุมภาพรวมของโปรเจกต์
+                คอยประสานงานระหว่างทีมและลูกค้า
+              </p>
+              <ul>
+                <li>วางแผน Sprint และ Timeline</li>
+                <li>จัดลำดับความสำคัญของงาน (Prioritize)</li>
+                <li>ติดตามความคืบหน้าของโปรเจกต์</li>
+                <li>สื่อสารกับลูกค้าและ Stakeholders</li>
+                <li>ช่วยแก้ปัญหาและตัดสินใจเมื่อมีอุปสรรค</li>
+              </ul>
+            </div>
+          </section>
 
-    <div class="slide">
-      <h2>🎨 Designer</h2>
-      <p>Designer จะรับผิดชอบด้านประสบการณ์ผู้ใช้ (UX) และหน้าตาระบบ (UI)</p>
-      <ul>
-        <li>วิเคราะห์ความต้องการของผู้ใช้</li>
-        <li>ออกแบบ Flow การใช้งานและ Wireframe</li>
-        <li>สร้าง UI ด้วย Figma หรือเครื่องมืออื่น</li>
-        <li>ทำงานร่วมกับ Dev เพื่อส่งมอบดีไซน์</li>
-        <li>ตรวจสอบการ Implement ให้ตรงกับดีไซน์</li>
-      </ul>
-    </div>
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+          >
+            <div
+              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
+            >
+              <h2>👨‍💻 Developer</h2>
+              <p>
+                นักพัฒนาซอฟต์แวร์ (Dev)
+                มีหน้าที่ในการเขียนโค้ดให้ระบบทำงานตามที่ออกแบบไว้
+              </p>
+              <ul>
+                <li>แปลง Requirement เป็นโค้ด</li>
+                <li>เขียนฟีเจอร์ใหม่และแก้ไขบั๊ก</li>
+                <li>ใช้ Git สำหรับ version control</li>
+                <li>ทำงานร่วมกับ Designer และ Tester</li>
+                <li>Review โค้ดของเพื่อนร่วมทีม</li>
+              </ul>
+            </div>
+          </section>
 
-    <div class="slide">
-      <h2>🚀 DevOps</h2>
-      <p>DevOps คือผู้เชื่อมต่อระหว่างการพัฒนาและการนำระบบขึ้นใช้งานจริง</p>
-      <ul>
-        <li>ดูแลระบบเซิร์ฟเวอร์และโครงสร้างพื้นฐาน</li>
-        <li>ตั้งค่า CI/CD สำหรับการ deploy อัตโนมัติ</li>
-        <li>ตรวจสอบความปลอดภัยของระบบ</li>
-        <li>แก้ไขปัญหาที่เกี่ยวกับ environment</li>
-        <li>ทำให้ระบบมีเสถียรภาพและสเกลได้</li>
-      </ul>
-    </div>
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+          >
+            <div
+              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
+            >
+              <h2>🎨 Designer</h2>
+              <p>
+                Designer จะรับผิดชอบด้านประสบการณ์ผู้ใช้ (UX) และหน้าตาระบบ (UI)
+              </p>
+              <ul>
+                <li>วิเคราะห์ความต้องการของผู้ใช้</li>
+                <li>ออกแบบ Flow การใช้งานและ Wireframe</li>
+                <li>สร้าง UI ด้วย Figma หรือเครื่องมืออื่น</li>
+                <li>ทำงานร่วมกับ Dev เพื่อส่งมอบดีไซน์</li>
+                <li>ตรวจสอบการ Implement ให้ตรงกับดีไซน์</li>
+              </ul>
+            </div>
+          </section>
 
-    <div class="slide">
-      <h2>💡 Tester (QA)</h2>
-      <p>
-        Tester หรือ QA (Quality Assurance)
-        มีหน้าที่ตรวจสอบคุณภาพของระบบก่อนนำไปใช้งานจริง
-      </p>
-      <ul>
-        <li>วางแผนการทดสอบตาม Requirement</li>
-        <li>ทดสอบฟีเจอร์ต่าง ๆ และรายงานบั๊ก</li>
-        <li>ทำ Regression Test เมื่อมีการเปลี่ยนแปลง</li>
-        <li>ทำงานใกล้ชิดกับ Dev และ PM</li>
-        <li>ช่วยให้มั่นใจว่าระบบพร้อมใช้งานจริง</li>
-      </ul>
-    </div>
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+          >
+            <div
+              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
+            >
+              <h2>🚀 DevOps</h2>
+              <p>
+                DevOps คือผู้เชื่อมต่อระหว่างการพัฒนาและการนำระบบขึ้นใช้งานจริง
+              </p>
+              <ul>
+                <li>ดูแลระบบเซิร์ฟเวอร์และโครงสร้างพื้นฐาน</li>
+                <li>ตั้งค่า CI/CD สำหรับการ deploy อัตโนมัติ</li>
+                <li>ตรวจสอบความปลอดภัยของระบบ</li>
+                <li>แก้ไขปัญหาที่เกี่ยวกับ environment</li>
+                <li>ทำให้ระบบมีเสถียรภาพและสเกลได้</li>
+              </ul>
+            </div>
+          </section>
 
-    <div class="slide">
-      <h2>🛠️ เครื่องมือที่ทีมของเราใช้</h2>
-      <ul>
-        <li><strong>การสื่อสารภายในทีม:</strong> Microsoft Teams</li>
-        <li><strong>จัดการงานและติดตามความคืบหน้า:</strong> Azure DevOps Boards</li>
-        <li><strong>จัดเก็บและจัดการ source code:</strong> Azure DevOps Repos</li>
-        <li><strong>กระบวนการ Build และ Deploy (CI/CD):</strong> Azure DevOps Pipelines</li>
-        <li><strong>ออกแบบ UX/UI:</strong> Figma</li>
-        <li><strong>การเขียน Test Case และตรวจสอบคุณภาพ:</strong> Google Sheets, New Banana Testing</li>
-      </ul>
-    </div>
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+          >
+            <div
+              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
+            >
+              <h2>💡 Tester (QA)</h2>
+              <p>
+                Tester หรือ QA (Quality Assurance)
+                มีหน้าที่ตรวจสอบคุณภาพของระบบก่อนนำไปใช้งานจริง
+              </p>
+              <ul>
+                <li>วางแผนการทดสอบตาม Requirement</li>
+                <li>ทดสอบฟีเจอร์ต่าง ๆ และรายงานบั๊ก</li>
+                <li>ทำ Regression Test เมื่อมีการเปลี่ยนแปลง</li>
+                <li>ทำงานใกล้ชิดกับ Dev และ PM</li>
+                <li>ช่วยให้มั่นใจว่าระบบพร้อมใช้งานจริง</li>
+              </ul>
+            </div>
+          </section>
 
-    <div class="slide">
-      <h2>🔁 Agile Process ที่เราใช้</h2>
-      <p>
-        กระบวนการทำงานของเรายึดหลัก Agile ที่เน้นการทำงานเป็นรอบสั้น ๆ เรียกว่า
-        "Sprint"
-        เพื่อให้สามารถปรับตัวและพัฒนาได้อย่างรวดเร็วตามความต้องการของลูกค้า
-      </p>
-      <ul>
-        <li>
-          <strong>1. Sprint Planning:</strong>
-          ทีมจะวางแผนร่วมกันว่าในรอบนี้จะทำอะไรบ้าง
-        </li>
-        <li>
-          <strong>2. Daily Stand-up:</strong> ทุกเช้าจะประชุมสั้น ๆ
-          เพื่ออัปเดตสถานะ ปัญหา และสิ่งที่จะทำต่อ
-        </li>
-        <li>
-          <strong>3. Development:</strong> Developer ทำการเขียนโค้ดตาม task
-          ที่ได้รับมอบหมาย
-        </li>
-        <li>
-          <strong>4. Testing:</strong> Tester ทำการทดสอบ ตรวจสอบคุณภาพงาน
-          และรายงานปัญหา
-        </li>
-        <li>
-          <strong>5. Review:</strong> แสดงผลงานของ Sprint
-          ให้ทีมและผู้เกี่ยวข้องดู
-        </li>
-        <li>
-          <strong>6. Retrospective:</strong> สรุปสิ่งที่ดี สิ่งที่ควรปรับปรุงใน
-          Sprint ที่ผ่านมา
-        </li>
-      </ul>
-      <p>
-        การทำงานแบบ Agile ช่วยให้ทีมเรายืดหยุ่น ปรับตัวได้เร็ว
-        และส่งมอบงานได้มีประสิทธิภาพมากขึ้น
-      </p>
-    </div>
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+          >
+            <div
+              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
+            >
+              <h2>🛠️ เครื่องมือที่ทีมของเราใช้</h2>
+              <ul>
+                <li><strong>การสื่อสารภายในทีม:</strong> Microsoft Teams</li>
+                <li>
+                  <strong>จัดการงานและติดตามความคืบหน้า:</strong> Azure DevOps
+                  Boards
+                </li>
+                <li>
+                  <strong>จัดเก็บและจัดการ source code:</strong> Azure DevOps
+                  Repos
+                </li>
+                <li>
+                  <strong>กระบวนการ Build และ Deploy (CI/CD):</strong> Azure
+                  DevOps Pipelines
+                </li>
+                <li><strong>ออกแบบ UX/UI:</strong> Figma</li>
+                <li>
+                  <strong>การเขียน Test Case และตรวจสอบคุณภาพ:</strong> Google
+                  Sheets, New Banana Testing
+                </li>
+              </ul>
+            </div>
+          </section>
 
-    <div class="slide">
-      <h2>👨‍💼 Project Manager ใน Sprint</h2>
-      <ul>
-        <li>วางแผน Sprint ร่วมกับทีม</li>
-        <li>จัดลำดับความสำคัญของงาน (Prioritization)</li>
-        <li>ติดตามความคืบหน้า และแก้ไขอุปสรรคต่าง ๆ</li>
-        <li>อัปเดตลูกค้าและ Stakeholders</li>
-      </ul>
-    </div>
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+          >
+            <div
+              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
+            >
+              <h2>🔁 Agile Process ที่เราใช้</h2>
+              <p>
+                กระบวนการทำงานของเรายึดหลัก Agile ที่เน้นการทำงานเป็นรอบสั้น ๆ
+                เรียกว่า "Sprint"
+                เพื่อให้สามารถปรับตัวและพัฒนาได้อย่างรวดเร็วตามความต้องการของลูกค้า
+              </p>
+              <ul>
+                <li>
+                  <strong>1. Sprint Planning:</strong>
+                  ทีมจะวางแผนร่วมกันว่าในรอบนี้จะทำอะไรบ้าง
+                </li>
+                <li>
+                  <strong>2. Daily Stand-up:</strong> ทุกเช้าจะประชุมสั้น ๆ
+                  เพื่ออัปเดตสถานะ ปัญหา และสิ่งที่จะทำต่อ
+                </li>
+                <li>
+                  <strong>3. Development:</strong> Developer ทำการเขียนโค้ดตาม
+                  task ที่ได้รับมอบหมาย
+                </li>
+                <li>
+                  <strong>4. Testing:</strong> Tester ทำการทดสอบ
+                  ตรวจสอบคุณภาพงาน และรายงานปัญหา
+                </li>
+                <li>
+                  <strong>5. Review:</strong> แสดงผลงานของ Sprint
+                  ให้ทีมและผู้เกี่ยวข้องดู
+                </li>
+                <li>
+                  <strong>6. Retrospective:</strong> สรุปสิ่งที่ดี
+                  สิ่งที่ควรปรับปรุงใน Sprint ที่ผ่านมา
+                </li>
+              </ul>
+              <p>
+                การทำงานแบบ Agile ช่วยให้ทีมเรายืดหยุ่น ปรับตัวได้เร็ว
+                และส่งมอบงานได้มีประสิทธิภาพมากขึ้น
+              </p>
+            </div>
+          </section>
 
-    <div class="slide">
-      <h2>👨‍💻 Developer ใน Sprint</h2>
-      <ul>
-        <li>แปลง Requirement เป็นโค้ดที่ทำงานได้จริง</li>
-        <li>ทำ Pair programming หรือ Review โค้ดเพื่อนร่วมทีม</li>
-        <li>เขียน Unit Test และแก้ไขบั๊ก</li>
-        <li>ส่งงานผ่าน Git และ Merge เข้าระบบ</li>
-      </ul>
-    </div>
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+          >
+            <div
+              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
+            >
+              <h2>👨‍💼 Project Manager ใน Sprint</h2>
+              <ul>
+                <li>วางแผน Sprint ร่วมกับทีม</li>
+                <li>จัดลำดับความสำคัญของงาน (Prioritization)</li>
+                <li>ติดตามความคืบหน้า และแก้ไขอุปสรรคต่าง ๆ</li>
+                <li>อัปเดตลูกค้าและ Stakeholders</li>
+              </ul>
+            </div>
+          </section>
 
-    <div class="slide">
-      <h2>🎨 Designer ใน Sprint</h2>
-      <ul>
-        <li>ออกแบบหน้าจอและ UX สำหรับฟีเจอร์ใหม่</li>
-        <li>ปรับแก้ดีไซน์ตาม Feedback จากทีม</li>
-        <li>ส่งมอบ UI ที่พร้อมให้ Dev ใช้งาน</li>
-        <li>ตรวจสอบว่า Dev ทำตรงตามแบบหรือไม่</li>
-      </ul>
-    </div>
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+          >
+            <div
+              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
+            >
+              <h2>👨‍💻 Developer ใน Sprint</h2>
+              <ul>
+                <li>แปลง Requirement เป็นโค้ดที่ทำงานได้จริง</li>
+                <li>ทำ Pair programming หรือ Review โค้ดเพื่อนร่วมทีม</li>
+                <li>เขียน Unit Test และแก้ไขบั๊ก</li>
+                <li>ส่งงานผ่าน Git และ Merge เข้าระบบ</li>
+              </ul>
+            </div>
+          </section>
 
-    <div class="slide">
-      <h2>🚀 DevOps ใน Sprint</h2>
-      <ul>
-        <li>ดูแลระบบ CI/CD ให้พร้อมใช้งาน</li>
-        <li>Deploy ระบบขึ้น staging หรือ production</li>
-        <li>จัดการ Environment และ Database</li>
-        <li>ช่วยทีมแก้ปัญหาด้าน Infrastructure</li>
-      </ul>
-    </div>
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+          >
+            <div
+              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
+            >
+              <h2>🎨 Designer ใน Sprint</h2>
+              <ul>
+                <li>ออกแบบหน้าจอและ UX สำหรับฟีเจอร์ใหม่</li>
+                <li>ปรับแก้ดีไซน์ตาม Feedback จากทีม</li>
+                <li>ส่งมอบ UI ที่พร้อมให้ Dev ใช้งาน</li>
+                <li>ตรวจสอบว่า Dev ทำตรงตามแบบหรือไม่</li>
+              </ul>
+            </div>
+          </section>
 
-    <div class="slide">
-      <h2>💡 Tester (QA) ใน Sprint</h2>
-      <ul>
-        <li>วางแผนและเขียน Test Cases</li>
-        <li>ทดสอบ Manual และ Automation</li>
-        <li>รายงานบั๊ก และติดตามการแก้ไข</li>
-        <li>ช่วยตรวจสอบก่อนระบบขึ้น UAT หรือ Production</li>
-      </ul>
-    </div>
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+          >
+            <div
+              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
+            >
+              <h2>🚀 DevOps ใน Sprint</h2>
+              <ul>
+                <li>ดูแลระบบ CI/CD ให้พร้อมใช้งาน</li>
+                <li>Deploy ระบบขึ้น staging หรือ production</li>
+                <li>จัดการ Environment และ Database</li>
+                <li>ช่วยทีมแก้ปัญหาด้าน Infrastructure</li>
+              </ul>
+            </div>
+          </section>
 
-    <div class="slide">
-      <h2>📦 การส่งมอบงาน และ Release</h2>
-      <p>
-        หลังจากจบแต่ละ Sprint ทีมจะมีการเตรียมส่งมอบงานให้ลูกค้าอย่างเป็นระบบ:
-      </p>
-      <ul>
-        <li>
-          <strong>Demo:</strong> PM และทีม Dev จะสาธิตผลงานจาก Sprint
-          ให้ลูกค้าเห็นสิ่งที่พัฒนาไป
-        </li>
-        <li>
-          <strong>UAT (User Acceptance Test):</strong> ลูกค้าได้ทดลองใช้งาน
-          และให้ Feedback
-        </li>
-        <li>
-          <strong>ปรับปรุงตาม Feedback:</strong>
-          ทีมจะนำสิ่งที่ได้ไปแก้ไขหรือต่อยอดใน Sprint ถัดไป
-        </li>
-        <li>
-          <strong>Release:</strong> งานที่ผ่าน UAT แล้วจะถูก deploy ไปยัง
-          Production หรือใช้งานจริง
-        </li>
-      </ul>
-      <p>ระบบของเรามีการแบ่งเวอร์ชันการส่งมอบ เช่น:</p>
-      <ul>
-        <li><strong>Staging:</strong> ทดสอบภายในทีม</li>
-        <li><strong>UAT:</strong> ทดสอบกับลูกค้าในสภาพแวดล้อมจำลองจริง</li>
-        <li><strong>Production:</strong> เวอร์ชันที่พร้อมใช้งานจริง</li>
-      </ul>
-      <p>
-        ลูกค้าจะได้รับงานที่ผ่านการทดสอบ
-        และมีเอกสารประกอบหรือคู่มือการใช้งานในแต่ละรอบ Release
-      </p>
-    </div>
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+          >
+            <div
+              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
+            >
+              <h2>💡 Tester (QA) ใน Sprint</h2>
+              <ul>
+                <li>วางแผนและเขียน Test Cases</li>
+                <li>ทดสอบ Manual และ Automation</li>
+                <li>รายงานบั๊ก และติดตามการแก้ไข</li>
+                <li>ช่วยตรวจสอบก่อนระบบขึ้น UAT หรือ Production</li>
+              </ul>
+            </div>
+          </section>
 
-    <div class="slide">
-      <h2>📌 การแบ่งรอบ Release และเลขเวอร์ชัน</h2>
-      <p>เพื่อให้การส่งมอบงานเป็นระบบ ทีมเรามีการจัดการรอบ Release และกำหนดเวอร์ชันให้ชัดเจน:</p>
-      <ul>
-        <li><strong>Staging:</strong> ใช้สำหรับการทดสอบภายในทีม</li>
-        <li><strong>UAT (User Acceptance Test):</strong> ส่งให้ลูกค้าทดสอบบนสภาพแวดล้อมที่ใกล้เคียง Production</li>
-        <li><strong>Production:</strong> เวอร์ชันที่พร้อมใช้งานจริง</li>
-      </ul>
-      <p><strong>ตัวอย่างการตั้งชื่อเวอร์ชัน:</strong></p>
-      <ul>
-        <li><code>v1.0.0</code> - เวอร์ชันแรกที่พร้อมใช้งาน</li>
-        <li><code>v1.1.0</code> - เพิ่มฟีเจอร์ใหม่</li>
-        <li><code>v1.1.1</code> - แก้ไขบั๊กเล็กน้อย</li>
-      </ul>
-      <p>รูปแบบนี้เรียกว่า <strong>Semantic Versioning</strong>: <code>MAJOR.MINOR.PATCH</code></p>
-    </div>
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+          >
+            <div
+              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
+            >
+              <h2>📦 การส่งมอบงาน และ Release</h2>
+              <p>
+                หลังจากจบแต่ละ Sprint
+                ทีมจะมีการเตรียมส่งมอบงานให้ลูกค้าอย่างเป็นระบบ:
+              </p>
+              <ul>
+                <li>
+                  <strong>Demo:</strong> PM และทีม Dev จะสาธิตผลงานจาก Sprint
+                  ให้ลูกค้าเห็นสิ่งที่พัฒนาไป
+                </li>
+                <li>
+                  <strong>UAT (User Acceptance Test):</strong>
+                  ลูกค้าได้ทดลองใช้งาน และให้ Feedback
+                </li>
+                <li>
+                  <strong>ปรับปรุงตาม Feedback:</strong>
+                  ทีมจะนำสิ่งที่ได้ไปแก้ไขหรือต่อยอดใน Sprint ถัดไป
+                </li>
+                <li>
+                  <strong>Release:</strong> งานที่ผ่าน UAT แล้วจะถูก deploy
+                  ไปยัง Production หรือใช้งานจริง
+                </li>
+              </ul>
+              <p>ระบบของเรามีการแบ่งเวอร์ชันการส่งมอบ เช่น:</p>
+              <ul>
+                <li><strong>Staging:</strong> ทดสอบภายในทีม</li>
+                <li>
+                  <strong>UAT:</strong> ทดสอบกับลูกค้าในสภาพแวดล้อมจำลองจริง
+                </li>
+                <li><strong>Production:</strong> เวอร์ชันที่พร้อมใช้งานจริง</li>
+              </ul>
+              <p>
+                ลูกค้าจะได้รับงานที่ผ่านการทดสอบ
+                และมีเอกสารประกอบหรือคู่มือการใช้งานในแต่ละรอบ Release
+              </p>
+            </div>
+          </section>
 
-    <div class="slide">
-      <h2>🧠 กิจกรรม: Agile Simulation</h2>
-      <p>ให้น้อง ๆ คิดไอเดียเว็ปแอปที่ช่วยจัดการคลังสินค้า</p>
-      <ul>
-        <li>แบ่งเป็น 2 Sprint</li>
-        <li>วางแผน + วาด Mockup ด้วยกระดาษ</li>
-        <li>นำเสนอไอเดียและรับ Feedback</li>
-      </ul>
-    </div>
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+          >
+            <div
+              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
+            >
+              <h2>📌 การแบ่งรอบ Release และเลขเวอร์ชัน</h2>
+              <p>
+                เพื่อให้การส่งมอบงานเป็นระบบ ทีมเรามีการจัดการรอบ Release
+                และกำหนดเวอร์ชันให้ชัดเจน:
+              </p>
+              <ul>
+                <li><strong>Staging:</strong> ใช้สำหรับการทดสอบภายในทีม</li>
+                <li>
+                  <strong>UAT (User Acceptance Test):</strong>
+                  ส่งให้ลูกค้าทดสอบบนสภาพแวดล้อมที่ใกล้เคียง Production
+                </li>
+                <li><strong>Production:</strong> เวอร์ชันที่พร้อมใช้งานจริง</li>
+              </ul>
+              <p><strong>ตัวอย่างการตั้งชื่อเวอร์ชัน:</strong></p>
+              <ul>
+                <li><code>v1.0.0</code> - เวอร์ชันแรกที่พร้อมใช้งาน</li>
+                <li><code>v1.1.0</code> - เพิ่มฟีเจอร์ใหม่</li>
+                <li><code>v1.1.1</code> - แก้ไขบั๊กเล็กน้อย</li>
+              </ul>
+              <p>
+                รูปแบบนี้เรียกว่า <strong>Semantic Versioning</strong>:
+                <code>MAJOR.MINOR.PATCH</code>
+              </p>
+            </div>
+          </section>
 
-    <div class="slide">
-      <h2>❓ Q&A Time!</h2>
-      <p>อยากรู้อะไรเกี่ยวกับงาน dev, บริษัท, หรือการฝึกงาน - ถามได้เลย!</p>
-    </div>
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+          >
+            <div
+              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
+            >
+              <h2>🧠 กิจกรรม: Agile Simulation</h2>
+              <p>ให้น้อง ๆ คิดไอเดียเว็ปแอปที่ช่วยจัดการคลังสินค้า</p>
+              <ul>
+                <li>แบ่งเป็น 2 Sprint</li>
+                <li>วางแผน + วาด Mockup ด้วยกระดาษ</li>
+                <li>นำเสนอไอเดียและรับ Feedback</li>
+              </ul>
+            </div>
+          </section>
 
-    <div class="slide">
-      <h2>🎉 สุดท้ายนี้...</h2>
-      <p>หวังว่าน้อง ๆ จะได้เข้าใจการทำงานจริงของทีมพัฒนาซอฟต์แวร์</p>
-      <p>ยินดีต้อนรับเข้าสู่ Bootcamp ของเรา!</p>
-      <p>— จากทีม Banana Coding 🚀</p>
-    </div>
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+          >
+            <div
+              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600"
+            >
+              <h2>❓ Q&A Time!</h2>
+              <p>
+                อยากรู้อะไรเกี่ยวกับงาน dev, บริษัท, หรือการฝึกงาน - ถามได้เลย!
+              </p>
+            </div>
+          </section>
 
-    <div class="nav-buttons">
-      <button onclick="prevSlide()" id="prevBtn">⬅️</button>
-      <button onclick="nextSlide()" id="nextBtn">➡️</button>
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+          >
+            <div
+              class="prose prose-lg prose-slate mx-auto max-w-3xl text-center prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600"
+            >
+              <h2>🎉 สุดท้ายนี้...</h2>
+              <p>หวังว่าน้อง ๆ จะได้เข้าใจการทำงานจริงของทีมพัฒนาซอฟต์แวร์</p>
+              <p>ยินดีต้อนรับเข้าสู่ Bootcamp ของเรา!</p>
+              <p>— จากทีม Banana Coding 🚀</p>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer
+        class="sticky bottom-6 left-0 right-0 flex flex-col gap-5 rounded-3xl border border-white/10 bg-slate-900/70 px-6 py-5 text-sm font-medium text-white/80 shadow-lg backdrop-blur sm:flex-row sm:items-center sm:justify-between sm:text-base sm:bottom-6"
+        aria-label="การควบคุมงานนำเสนอ"
+      >
+        <div
+          class="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center sm:gap-5"
+        >
+          <p id="progressText" class="text-lg font-semibold text-white">
+            สไลด์ 01 / --
+          </p>
+          <div
+            class="h-2 w-full overflow-hidden rounded-full bg-white/10 sm:w-60"
+          >
+            <span
+              id="progressBar"
+              class="block h-full origin-left scale-x-0 rounded-full bg-sky-400 transition-transform duration-500"
+              aria-hidden="true"
+            ></span>
+          </div>
+        </div>
+        <div class="flex w-full flex-wrap gap-3 sm:w-auto sm:flex-nowrap">
+          <button
+            onclick="toggleFullscreen()"
+            id="fullscreenBtn"
+            class="flex w-full items-center justify-center gap-2 rounded-2xl bg-white/10 px-4 py-3 text-base font-semibold text-white transition hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 sm:w-auto"
+            aria-label="สลับโหมดเต็มหน้าจอ"
+          >
+            <span data-icon class="text-lg leading-none">⛶</span>
+            <span class="hidden sm:inline">เต็มจอ</span>
+          </button>
+          <button
+            onclick="prevSlide()"
+            id="prevBtn"
+            class="flex w-full items-center justify-center gap-2 rounded-2xl bg-white/15 px-4 py-3 text-base font-semibold text-white transition hover:bg-white/25 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 disabled:cursor-not-allowed disabled:bg-white/5 disabled:text-white/40 sm:w-auto"
+            aria-label="ย้อนกลับหนึ่งสไลด์"
+          >
+            ⬅️
+            <span>ก่อนหน้า</span>
+          </button>
+          <button
+            onclick="nextSlide()"
+            id="nextBtn"
+            class="flex w-full items-center justify-center gap-2 rounded-2xl bg-sky-500/90 px-4 py-3 text-base font-semibold text-white transition hover:bg-sky-400/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-200 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 disabled:cursor-not-allowed disabled:bg-white/5 disabled:text-white/40 sm:w-auto"
+            aria-label="ไปสไลด์ถัดไป"
+          >
+            <span>ถัดไป</span>
+            ➡️
+          </button>
+        </div>
+      </footer>
     </div>
 
     <script>
       const slides = document.querySelectorAll(".slide");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const progressText = document.getElementById("progressText");
+      const progressBar = document.getElementById("progressBar");
+      const fullscreenBtn = document.getElementById("fullscreenBtn");
+
+      const stateClasses = {
+        active: [
+          "relative",
+          "z-20",
+          "pointer-events-auto",
+          "translate-x-0",
+          "md:translate-x-0",
+          "scale-100",
+          "md:scale-100",
+        ],
+        left: [
+          "absolute",
+          "z-0",
+          "pointer-events-none",
+          "-translate-x-full",
+          "md:-translate-x-full",
+          "scale-95",
+          "md:scale-95",
+        ],
+        right: [
+          "absolute",
+          "z-0",
+          "pointer-events-none",
+          "translate-x-full",
+          "md:translate-x-full",
+          "scale-95",
+          "md:scale-95",
+        ],
+      };
+      const allStateClasses = Array.from(
+        new Set(Object.values(stateClasses).flat()),
+      );
+
       let current = 0;
+      const total = slides.length;
+
+      function applyState(slide, state) {
+        allStateClasses.forEach((cls) => slide.classList.remove(cls));
+        stateClasses[state].forEach((cls) => slide.classList.add(cls));
+      }
+
+      function updateProgress() {
+        if (!progressText || !progressBar) return;
+        const currentSlide = String(current + 1).padStart(2, "0");
+        const totalSlides = String(total).padStart(2, "0");
+        progressText.textContent = `สไลด์ ${currentSlide} / ${totalSlides}`;
+        const progressRatio = total > 1 ? (current + 1) / total : 1;
+        progressBar.style.transform = `scaleX(${progressRatio})`;
+      }
 
       function updateSlides() {
         slides.forEach((slide, index) => {
-          slide.classList.toggle("active", index === current);
+          const state =
+            index === current ? "active" : index < current ? "left" : "right";
+          applyState(slide, state);
         });
-        document.getElementById("prevBtn").disabled = current === 0;
-        document.getElementById("nextBtn").disabled =
-          current === slides.length - 1;
+        prevBtn.disabled = current === 0;
+        nextBtn.disabled = current === slides.length - 1;
+        updateProgress();
+      }
+
+      function updateFullscreenButton() {
+        if (!fullscreenBtn) return;
+        const iconSpan = fullscreenBtn.querySelector("[data-icon]");
+        const labelSpan = fullscreenBtn.querySelector("span:last-child");
+        const isFullscreen = Boolean(document.fullscreenElement);
+        fullscreenBtn.setAttribute(
+          "aria-label",
+          isFullscreen ? "ออกจากโหมดเต็มหน้าจอ" : "สลับโหมดเต็มหน้าจอ",
+        );
+        if (iconSpan) {
+          iconSpan.textContent = isFullscreen ? "🡼" : "⛶";
+        }
+        if (labelSpan) {
+          labelSpan.textContent = isFullscreen ? "ย่อจอ" : "เต็มจอ";
+        }
+      }
+
+      function toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen?.();
+        } else {
+          document.exitFullscreen?.();
+        }
       }
 
       function nextSlide() {
         if (current < slides.length - 1) {
-          current++;
+          current += 1;
           updateSlides();
         }
       }
 
       function prevSlide() {
         if (current > 0) {
-          current--;
+          current -= 1;
           updateSlides();
         }
       }
 
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight" || event.key === "PageDown") {
+          nextSlide();
+        }
+        if (event.key === "ArrowLeft" || event.key === "PageUp") {
+          prevSlide();
+        }
+        if ((event.key === "f" || event.key === "F") && !event.metaKey) {
+          event.preventDefault();
+          toggleFullscreen();
+        }
+      });
+
+      document.addEventListener("fullscreenchange", updateFullscreenButton);
+
       updateSlides();
+      updateFullscreenButton();
     </script>
   </body>
 </html>
