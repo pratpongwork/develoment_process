@@ -77,9 +77,7 @@
             </div>
           </section>
 
-          <section
-            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
-          >
+          <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="Agenda">
             <div
               class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
             >
@@ -707,11 +705,135 @@
               class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
             >
               <h2>🧠 กิจกรรม: Agile Simulation</h2>
-              <p>ให้น้อง ๆ คิดไอเดียเว็ปแอปที่ช่วยจัดการคลังสินค้า</p>
+              <p>ให้น้อง ๆ คิดไอเดียเว็บแอปที่ช่วยจัดการคลังสินค้า</p>
               <ul>
                 <li>แบ่งเป็น 2 Sprint</li>
                 <li>วางแผน + วาด Mockup ด้วยกระดาษ</li>
                 <li>นำเสนอไอเดียและรับ Feedback</li>
+              </ul>
+            </div>
+          </section>
+
+          <section
+            class="slide relative flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 pointer-events-auto translate-x-0 md:translate-x-0 scale-100 md:scale-100 z-20"
+          >
+            <div
+              class="prose prose-lg prose-slate mx-auto max-w-3xl text-center prose-headings:font-semibold prose-h1:text-5xl prose-h1:leading-tight prose-h2:mt-0 prose-h2:text-3xl prose-p:text-slate-600"
+            >
+              <h1>FOR YOUR INFOMATION</h1>
+            </div>
+          </section>
+
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+            data-title="Branching"
+          >
+            <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-ul:space-y-2">
+              <h2>🌳 Branching Strategy</h2>
+              <ul>
+                <li><strong>Trunk-based (แนะนำ):</strong> main เสถียร, feature branches สั้น, PR เล็ก, CI เข้ม</li>
+                <li><strong>GitFlow:</strong> ใช้เมื่อมี release cadence ชัดเจนและหลายสภาพแวดล้อม</li>
+                <li>ตั้ง <em>naming</em> มาตรฐาน เช่น <code>feature/</code>, <code>fix/</code>, <code>release/</code></li>
+                <li>ไม่ push ตรง main; ใช้ PR + Review + CI เท่านั้น</li>
+              </ul>
+            </div>
+          </section>
+
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+            data-title="Code Review"
+          >
+            <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-ul:space-y-2">
+              <h2>🔍 Code Review Checklist</h2>
+              <ul>
+                <li>ความถูกต้องตาม AC, test ครอบคลุม, แฮนด์ล error และ edge cases</li>
+                <li>อ่านง่าย แยกความรับผิดชอบ, ฟังก์ชันสั้น, ตั้งชื่อสื่อความหมาย</li>
+                <li>ผลกระทบด้าน performance, security, accessibility</li>
+                <li>คงสไตล์ทีม (lint/formatter), commit message ชัดเจน</li>
+              </ul>
+            </div>
+          </section>
+
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+            data-title="Issue Lifecycle"
+          >
+            <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-ul:space-y-2">
+              <h2>🧾 Issue Lifecycle</h2>
+              <ul>
+                <li>To Do → In Progress → In Review → QA → Ready for UAT → Done</li>
+                <li>Definition ของแต่ละสถานะชัดเจน เพื่อลดการตีความ</li>
+                <li>ทุกการเคลื่อนไหร่มาพร้อมหลักฐาน: PR link, screenshot, test link</li>
+              </ul>
+            </div>
+          </section>
+
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+            data-title="Quality Gates"
+          >
+            <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-ul:space-y-2">
+              <h2>🧪 Test Pyramid & Quality Gates</h2>
+              <ul>
+                <li>Unit (มาก) → Integration (พอเหมาะ) → E2E/UI (เฉพาะ critical path)</li>
+                <li>CI gate: lint, test, coverage threshold, build artifact</li>
+                <li>UAT gate: AC ผ่าน, regression สำคัญเขียว, no P1 bug</li>
+              </ul>
+            </div>
+          </section>
+
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+            data-title="Security"
+          >
+            <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-ul:space-y-2">
+              <h2>🔐 Security Basics</h2>
+              <ul>
+                <li>ห้าม hardcode secret; ใช้ secret manager / env</li>
+                <li>การยืนยันตัวตน/สิทธิ์เข้าถึง, audit log สำหรับ action สำคัญ</li>
+                <li>Dependency scanning, SAST/DAST (ถ้ามี)</li>
+              </ul>
+            </div>
+          </section>
+
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+            data-title="Perf & Observability"
+          >
+            <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-ul:space-y-2">
+              <h2>📈 Performance & Observability</h2>
+              <ul>
+                <li>ตั้ง performance budget (TTFB/LCP/CLS หรือ API latency)</li>
+                <li>Log โครงสร้าง, tracing, metrics + alerting ที่สำคัญ</li>
+                <li>Post-release monitoring + rollback plan</li>
+              </ul>
+            </div>
+          </section>
+
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+            data-title="Intern Expects"
+          >
+            <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-ul:space-y-2">
+              <h2>🎯 Intern Expectations & Evaluation</h2>
+              <ul>
+                <li>Growth mindset: ถาม-ลอง-สรุปบทเรียน</li>
+                <li>คุณภาพก่อนปริมาณ: PR เล็ก มี test, อธิบาย impact</li>
+                <li>วัดผล: attendance, task completion, code quality, teamwork, communication</li>
+              </ul>
+            </div>
+          </section>
+
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+            data-title="Communication"
+          >
+            <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-ul:space-y-2">
+              <h2>💬 Communication Norms</h2>
+              <ul>
+                <li>อัปเดตสั้น-ชัด-ตรงประเด็น: context → ปัญหา → ทางเลือก → ข้อเสนอ</li>
+                <li>เขียนก่อนพูด: ใช้ issue description/PR description ให้ละเอียด</li>
+                <li>เวลาติด: 30 นาทีไม่คืบหน้า ให้ขอความช่วยเหลือ</li>
               </ul>
             </div>
           </section>
@@ -796,7 +918,6 @@
             onclick="toggleOverview()"
             class="flex w-full items-center justify-center gap-2 rounded-2xl bg-white/10 px-4 py-3 text-base font-semibold text-white transition hover:bg-white/20 sm:w-auto"
             aria-label="ภาพรวมสไลด์"
-            data-tooltip="O"
           >
             🧭
             <span class="hidden sm:inline">ภาพรวม</span>
@@ -853,7 +974,7 @@
       );
 
       let current = 0;
-      const total = slides.length;
+      const slideCount = slides.length;
 
       function applyState(slide, state) {
         allStateClasses.forEach((cls) => slide.classList.remove(cls));
@@ -863,9 +984,9 @@
       function updateProgress() {
         if (!progressText || !progressBar) return;
         const currentSlide = String(current + 1).padStart(2, "0");
-        const totalSlides = String(total).padStart(2, "0");
+        const totalSlides = String(slideCount).padStart(2, "0");
         progressText.textContent = `สไลด์ ${currentSlide} / ${totalSlides}`;
-        const progressRatio = total > 1 ? (current + 1) / total : 1;
+        const progressRatio = slideCount > 1 ? (current + 1) / slideCount : 1;
         progressBar.style.transform = `scaleX(${progressRatio})`;
       }
 
@@ -876,7 +997,7 @@
           applyState(slide, state);
         });
         prevBtn.disabled = current === 0;
-        nextBtn.disabled = current === slides.length - 1;
+        nextBtn.disabled = current === slideCount - 1;
         updateProgress();
       }
 
@@ -920,7 +1041,7 @@
       }
 
       function nextSlide() {
-        if (current < slides.length - 1) {
+        if (current < slideCount - 1) {
           current += 1;
           updateSlides();
         }
@@ -934,7 +1055,7 @@
       }
 
       function goTo(index) {
-        const clamped = Math.max(0, Math.min(index, slides.length - 1));
+        const clamped = Math.max(0, Math.min(index, slideCount - 1));
         if (clamped !== current) {
           current = clamped;
           updateSlides();
@@ -994,6 +1115,12 @@
         }
         if (event.key === "o" || event.key === "O") {
           toggleOverview();
+        }
+        if (event.key === "Home") {
+          goTo(0);
+        }
+        if (event.key === "End") {
+          goTo(slideCount - 1);
         }
         if (
           event.key === "Escape" &&
