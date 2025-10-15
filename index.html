@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="th">
   <head>
     <meta charset="UTF-8" />
@@ -27,6 +27,22 @@
       };
     </script>
     <script src="https://cdn.tailwindcss.com?plugins=typography&version=3.4.13"></script>
+    <style>
+      @media print {
+        footer,
+        .overview {
+          display: none !important;
+        }
+      }
+
+      .overview {
+        display: none !important;
+      }
+
+      .overview.is-open {
+        display: grid !important;
+      }
+    </style>
   </head>
   <body
     class="relative min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100 antialiased"
@@ -61,28 +77,25 @@
             </div>
           </section>
 
-
           <section
             class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
           >
             <div
               class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
-          >
-            <h2>🗂️ Agenda</h2>
-            <ul>
-              <li>🏢 แนะนำบริษัท และเพื่อนร่วมทีม</li>
-              <li>👥 บทบาทของแต่ละตำแหน่งในทีม</li>
-              <li>🛠️ เครื่องมือที่ทีมของเราใช้</li>
-              <li>🏗️ Foundation Meeting (ภาพรวม + ทีมย่อย)</li>
-              <li>🔁 Agile Process & บทบาทใน Sprint</li>
-              <li>📦 การส่งมอบงาน และ Release</li>
-              <li>🧠 กิจกรรม Agile Simulation</li>
-              <li>❓ Q&A + แชร์ประสบการณ์การทำงาน</li>
-            </ul>
-          </div>
-        </section>
-
-        
+            >
+              <h2>🗂️ Agenda</h2>
+              <ul>
+                <li>🏢 แนะนำบริษัท และเพื่อนร่วมทีม</li>
+                <li>👥 บทบาทของแต่ละตำแหน่งในทีม</li>
+                <li>🛠️ เครื่องมือที่ทีมของเราใช้</li>
+                <li>🏗️ Foundation Meeting (ภาพรวม + ทีมย่อย)</li>
+                <li>🔁 Agile Process & บทบาทใน Sprint</li>
+                <li>📦 การส่งมอบงาน และ Release</li>
+                <li>🧠 กิจกรรม Agile Simulation</li>
+                <li>❓ Q&A + แชร์ประสบการณ์การทำงาน</li>
+              </ul>
+            </div>
+          </section>
 
           <section
             class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
@@ -234,25 +247,63 @@
             </div>
           </section>
 
-<section
-          class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
-        >
-          <div
-            class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
           >
-            <h2>🏗️ Foundation Meeting</h2>
-            <p>
-              ก่อนเริ่ม Sprint แรก เราจะมี Foundation Meeting เพื่อให้ทุกฝ่ายเข้าใจเป้าหมายและมาตรฐานเดียวกัน
-            </p>
-            <ul>
-              <li>ยืนยันวิสัยทัศน์ โปรดักต์ Goal และตัวชี้วัดความสำเร็จร่วมกัน</li>
-              <li>สรุปขอบเขตงาน (Scope) และ MVP ที่ต้องส่งมอบในระยะสั้น</li>
-              <li>วางแผนโครงสร้างทีม ระบุ Stakeholder และช่องทางการสื่อสาร</li>
-              <li>กำหนด Definition of Ready / Definition of Done ที่ทุกคนยึดตาม</li>
-              <li>เตรียม Roadmap ระดับสูง และจัดลำดับ Backlog ก่อนเข้าสู่ Sprint Planning</li>
-            </ul>
-          </div>
-        </section>
+            <div
+              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
+            >
+              <h2>🏗️ Foundation Meeting</h2>
+              <p>
+                ก่อนเริ่ม Sprint แรก เราจะมี Foundation Meeting
+                เพื่อให้ทุกฝ่ายเข้าใจเป้าหมายและมาตรฐานเดียวกัน
+              </p>
+              <ul>
+                <li>
+                  ยืนยันวิสัยทัศน์ โปรดักต์ Goal และตัวชี้วัดความสำเร็จร่วมกัน
+                </li>
+                <li>สรุปขอบเขตงาน (Scope) และ MVP ที่ต้องส่งมอบในระยะสั้น</li>
+                <li>
+                  วางแผนโครงสร้างทีม ระบุ Stakeholder และช่องทางการสื่อสาร
+                </li>
+                <li>
+                  กำหนด Definition of Ready / Definition of Done ที่ทุกคนยึดตาม
+                </li>
+                <li>
+                  เตรียม Roadmap ระดับสูง และจัดลำดับ Backlog ก่อนเข้าสู่ Sprint
+                  Planning
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+            data-title="DoR & DoD"
+          >
+            <div
+              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-2"
+            >
+              <h2>
+                ✅ Definition of Ready (DoR) & ✅ Definition of Done (DoD)
+              </h2>
+              <p>
+                ตั้งเกณฑ์เดียวกันก่อนเริ่มและก่อนจบงาน
+                เพื่อให้ส่งมอบได้คุณภาพสม่ำเสมอ
+              </p>
+              <ul>
+                <li>
+                  <strong>DoR ตัวอย่าง:</strong> มี User Story + Acceptance
+                  Criteria, UX พร้อม, Dependency เคลียร์, Estimation เสร็จ
+                </li>
+                <li>
+                  <strong>DoD ตัวอย่าง:</strong> ผ่าน Code Review,
+                  Unit/Integration test เขียว, QA ผ่านตาม AC, Deploy ไป Staging
+                  พร้อม Release note
+                </li>
+              </ul>
+            </div>
+          </section>
 
           <section
             class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
@@ -260,16 +311,30 @@
             <div
               class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
             >
-              <h2>🏗️ Foundation Meeting — PM / PO</h2>
+              <h2>🏗️ Foundation Meeting — Project Manager (PM)</h2>
               <p>
-                Project Manager และ Product Owner เป็นผู้นำการประชุมเพื่อวางภาพใหญ่ของโปรเจกต์
+                Project Manager เป็นผู้นำการประชุมเพื่อวางภาพใหญ่ของโปรเจกต์
               </p>
               <ul>
-                <li>เตรียม <strong>Project Charter</strong>, Timeline เบื้องต้น และ Scope ที่ตกลงกับลูกค้า</li>
-                <li>รวบรวม <strong>Vision Deck</strong>, Persona, Journey เพื่ออธิบายปัญหาและเป้าหมาย</li>
-                <li>สรุป Stakeholder หลัก ช่องทางสื่อสาร และ expectation ของแต่ละฝ่าย</li>
-                <li>Present Roadmap ระดับสูง พร้อม Milestone สำคัญและความเสี่ยงที่คาดการณ์ไว้</li>
-                <li>เก็บ Action Item ที่ต้อง follow up ก่อนเข้าสู่ Sprint แรก</li>
+                <li>
+                  เตรียม <strong>User Story</strong>, Timeline เบื้องต้น และ
+                  Scope ที่ตกลงกับลูกค้า
+                </li>
+                <li>
+                  รวบรวม <strong>Vision Deck</strong>, Persona, Journey
+                  เพื่ออธิบายปัญหาและเป้าหมาย
+                </li>
+                <li>
+                  สรุป Stakeholder หลัก ช่องทางสื่อสาร และ expectation
+                  ของแต่ละฝ่าย
+                </li>
+                <li>
+                  Present Roadmap ระดับสูง พร้อม Milestone
+                  สำคัญและความเสี่ยงที่คาดการณ์ไว้
+                </li>
+                <li>
+                  เก็บ Action Item ที่ต้อง follow up ก่อนเข้าสู่ Sprint แรก
+                </li>
               </ul>
             </div>
           </section>
@@ -281,15 +346,28 @@
               class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
             >
               <h2>🏗️ Foundation Meeting — Designer</h2>
-              <p>
-                ทีมดีไซน์ช่วยวางภาพประสบการณ์ผู้ใช้และแนวทางการออกแบบ
-              </p>
+              <p>ทีมดีไซน์ช่วยวางภาพประสบการณ์ผู้ใช้และแนวทางการออกแบบ</p>
               <ul>
-                <li>เตรียม <strong>Moodboard</strong>, Design Guideline ที่ใช้ร่วมกับแบรนด์</li>
-                <li>แสดง <strong>Concept Wireframe</strong> หรือ Flow คร่าว ๆ ของจุดสำคัญ</li>
-                <li>รวบรวม Feedback ที่ได้รับจากลูกค้าก่อนหน้า เพื่อจับจุดที่ต้องโฟกัส</li>
-                <li>ระบุความต้องการด้าน Assets / Components ที่จะต้องใช้ใน Sprint แรก</li>
-                <li>เสนอวิธีทำงานร่วมกับ Dev และ QA เช่น ช่องทาง REVIEW ดีไซน์, Definition of Ready สำหรับงาน UI</li>
+                <li>
+                  เตรียม <strong>Story Book</strong>, Design Guideline
+                  ที่ใช้ร่วมกับแบรนด์
+                </li>
+                <li>
+                  แสดง <strong>Concept Wireframe</strong> หรือ Flow คร่าว ๆ
+                  ของจุดสำคัญ
+                </li>
+                <li>
+                  รวบรวม Feedback ที่ได้รับจากลูกค้าก่อนหน้า
+                  เพื่อจับจุดที่ต้องโฟกัส
+                </li>
+                <li>
+                  ระบุความต้องการด้าน Assets / Components ที่จะต้องใช้ใน Sprint
+                  แรก
+                </li>
+                <li>
+                  เสนอวิธีทำงานร่วมกับ Dev และ QA เช่น ช่องทาง REVIEW ดีไซน์,
+                  Definition of Ready สำหรับงาน UI
+                </li>
               </ul>
             </div>
           </section>
@@ -301,15 +379,28 @@
               class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
             >
               <h2>🏗️ Foundation Meeting — Technical / Dev</h2>
-              <p>
-                Technical Lead และทีม Dev กำหนดแนวทางเทคโนโลยีและการพัฒนา
-              </p>
+              <p>Technical Lead และทีม Dev กำหนดแนวทางเทคโนโลยีและการพัฒนา</p>
               <ul>
-                <li>เสนอ <strong>Architecture Diagram</strong>, Integration Points และ Dependency สำคัญ</li>
-                <li>วิเคราะห์ความเสี่ยงทางเทคนิค พร้อมเสนอ Spike หรือ Proof of Concept ที่ต้องทำ</li>
-                <li>ยืนยัน Tech Stack, Coding Guideline, Branching Strategy และเครื่องมือหลัก</li>
-                <li>ระบุ Resource หรือ Environment ที่ต้องเตรียม เช่น CI/CD, Cloud, Database</li>
-                <li>สื่อสาร Definition of Done ทางเทคนิค เช่น Unit Test Coverage, Code Review Criteria</li>
+                <li>
+                  เสนอ <strong>Architecture Diagram</strong>, Integration Points
+                  และ Dependency สำคัญ
+                </li>
+                <li>
+                  วิเคราะห์ความเสี่ยงทางเทคนิค พร้อมเสนอ Spike หรือ Proof of
+                  Concept ที่ต้องทำ
+                </li>
+                <li>
+                  ยืนยัน Tech Stack, Coding Guideline, Branching Strategy
+                  และเครื่องมือหลัก
+                </li>
+                <li>
+                  ระบุ Resource หรือ Environment ที่ต้องเตรียม เช่น Cloud,
+                  Database
+                </li>
+                <li>
+                  สื่อสาร Definition of Done ทางเทคนิค เช่น Unit Test Coverage,
+                  Code Review Criteria
+                </li>
               </ul>
             </div>
           </section>
@@ -321,13 +412,28 @@
               class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
             >
               <h2>🏗️ Foundation Meeting — DevOps</h2>
-              <p>DevOps เตรียมระบบพื้นฐานและความพร้อมสำหรับการส่งมอบงานตั้งแต่วันแรก</p>
+              <p>
+                DevOps
+                เตรียมระบบพื้นฐานและความพร้อมสำหรับการส่งมอบงานตั้งแต่วันแรก
+              </p>
               <ul>
-                <li>กำหนด Infrastructure Overview, Environment ที่ต้องใช้ (Dev/Staging/Prod)</li>
-                <li>เตรียม CI/CD Pipeline เบื้องต้น พร้อมเครื่องมือ Deploy/Monitoring</li>
-                <li>ยืนยันแนวทาง Security, Backup, Access Control ร่วมกับทีมเทคนิค</li>
-                <li>รวบรวมความต้องการด้าน Resources เช่น cloud quota, domain, SSL</li>
-                <li>วางแผน Incident Response และช่องทางการ Support หลัง go-live</li>
+                <li>
+                  กำหนด Infrastructure Overview, Environment ที่ต้องใช้
+                  (Dev/Staging/Prod)
+                </li>
+                <li>
+                  เตรียม CI/CD Pipeline เบื้องต้น พร้อมเครื่องมือ
+                  Deploy/Monitoring
+                </li>
+                <li>
+                  ยืนยันแนวทาง Security, Backup, Access Control ร่วมกับทีมเทคนิค
+                </li>
+                <li>
+                  รวบรวมความต้องการด้าน Resources เช่น cloud quota, domain, SSL
+                </li>
+                <li>
+                  วางแผน Incident Response และช่องทางการ Support หลัง go-live
+                </li>
               </ul>
             </div>
           </section>
@@ -339,15 +445,20 @@
               class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
             >
               <h2>🏗️ Foundation Meeting — QA / Tester</h2>
-              <p>
-                QA ช่วยกำหนดมาตรฐานคุณภาพและแผนการทดสอบตั้งแต่ต้น
-              </p>
+              <p>QA ช่วยกำหนดมาตรฐานคุณภาพและแผนการทดสอบตั้งแต่ต้น</p>
               <ul>
-                <li>จัดทำ <strong>Test Strategy</strong>, Quality Gate และประเภทการทดสอบที่จะใช้</li>
-                <li>กำหนด Test Environment, Test Data และเครื่องมือที่ต้องเตรียม</li>
-                <li>ออก Definition of Ready / Done ในมุมคุณภาพ เช่น เอกสาร, Acceptance Criteria</li>
+                <li>
+                  จัดทำ <strong>Test Strategy</strong>, Quality Gate
+                  และประเภทการทดสอบที่จะใช้
+                </li>
+                <li>
+                  กำหนด Test Environment, Test Data และเครื่องมือที่ต้องเตรียม
+                </li>
                 <li>เสนอแนวทาง Automation / Manual test ที่ต้องทำในระยะสั้น</li>
-                <li>สรุปรายการ Risk หรือ Constraints ที่เกี่ยวข้องกับ QA ให้ทีมรับทราบ</li>
+                <li>
+                  สรุปรายการ Risk หรือ Constraints ที่เกี่ยวข้องกับ QA
+                  ให้ทีมรับทราบ
+                </li>
               </ul>
             </div>
           </section>
@@ -527,30 +638,6 @@
             <div
               class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
             >
-              <h2>🔄 Aftermath (Retrospective)</h2>
-              <p>
-                เมื่อปล่อยงานแล้ว ทีมจะกลับมาทบทวนสิ่งที่เกิดขึ้นใน Sprint เพื่อเรียนรู้และพัฒนาต่อ
-              </p>
-              <ul>
-                <li>สะท้อนสิ่งที่ทำได้ดี สิ่งที่ติดขัด และอะไรที่อยากลองทำในรอบหน้า</li>
-                <li>รวบรวม Feedback จากลูกค้าและสมาชิกทีม แล้วจัดลำดับ Action Item</li>
-                <li>กำหนดผู้รับผิดชอบและกำหนดเส้นตายของ Action Item แต่ละข้อ</li>
-                <li>อัปเดต Process/Tooling ให้เหมาะสม เช่น ปรับ flow, test coverage, automation</li>
-                <li>ฉลองความสำเร็จเล็ก ๆ น้อย ๆ เพื่อรักษาขวัญและกำลังใจทีม</li>
-              </ul>
-              <p>
-                การ Retrospective ที่สม่ำเสมอช่วยให้ทีมเติบโต
-                และปล่อยงานได้คุณภาพมากขึ้นในทุก ๆ Sprint
-              </p>
-            </div>
-          </section>
-
-          <section
-            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
-          >
-            <div
-              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
-            >
               <h2>📌 การแบ่งรอบ Release และเลขเวอร์ชัน</h2>
               <p>
                 เพื่อให้การส่งมอบงานเป็นระบบ ทีมเรามีการจัดการรอบ Release
@@ -573,6 +660,41 @@
               <p>
                 รูปแบบนี้เรียกว่า <strong>Semantic Versioning</strong>:
                 <code>MAJOR.MINOR.PATCH</code>
+              </p>
+            </div>
+          </section>
+
+          <section
+            class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95"
+          >
+            <div
+              class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1"
+            >
+              <h2>🔄 Aftermath (Retrospective)</h2>
+              <p>
+                เมื่อปล่อยงานแล้ว ทีมจะกลับมาทบทวนสิ่งที่เกิดขึ้นใน Sprint
+                เพื่อเรียนรู้และพัฒนาต่อ
+              </p>
+              <ul>
+                <li>
+                  สะท้อนสิ่งที่ทำได้ดี สิ่งที่ติดขัด
+                  และอะไรที่อยากลองทำในรอบหน้า
+                </li>
+                <li>
+                  รวบรวม Feedback จากลูกค้าและสมาชิกทีม แล้วจัดลำดับ Action Item
+                </li>
+                <li>
+                  กำหนดผู้รับผิดชอบและกำหนดเส้นตายของ Action Item แต่ละข้อ
+                </li>
+                <li>
+                  อัปเดต Process/Tooling ให้เหมาะสม เช่น ปรับ flow, test
+                  coverage, automation
+                </li>
+                <li>ฉลองความสำเร็จเล็ก ๆ น้อย ๆ เพื่อรักษาขวัญและกำลังใจทีม</li>
+              </ul>
+              <p>
+                การ Retrospective ที่สม่ำเสมอช่วยให้ทีมเติบโต
+                และปล่อยงานได้คุณภาพมากขึ้นในทุก ๆ Sprint
               </p>
             </div>
           </section>
@@ -669,9 +791,23 @@
             <span>ถัดไป</span>
             ➡️
           </button>
+          <button
+            onclick="toggleOverview()"
+            class="flex w-full items-center justify-center gap-2 rounded-2xl bg-white/10 px-4 py-3 text-base font-semibold text-white transition hover:bg-white/20 sm:w-auto"
+            aria-label="ภาพรวมสไลด์"
+            data-tooltip="O"
+          >
+            🧭
+            <span class="hidden sm:inline">ภาพรวม</span>
+          </button>
         </div>
       </footer>
     </div>
+
+    <div
+      id="overview"
+      class="overview fixed inset-0 z-40 grid grid-cols-1 gap-6 bg-black/60 p-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 overflow-auto"
+    ></div>
 
     <script>
       const slides = document.querySelectorAll(".slide");
@@ -680,6 +816,7 @@
       const progressText = document.getElementById("progressText");
       const progressBar = document.getElementById("progressBar");
       const fullscreenBtn = document.getElementById("fullscreenBtn");
+      const overviewEl = document.getElementById("overview");
 
       const stateClasses = {
         active: [
@@ -711,7 +848,7 @@
         ],
       };
       const allStateClasses = Array.from(
-        new Set(Object.values(stateClasses).flat()),
+        new Set(Object.values(stateClasses).flat())
       );
 
       let current = 0;
@@ -749,7 +886,7 @@
         const isFullscreen = Boolean(document.fullscreenElement);
         fullscreenBtn.setAttribute(
           "aria-label",
-          isFullscreen ? "ออกจากโหมดเต็มหน้าจอ" : "สลับโหมดเต็มหน้าจอ",
+          isFullscreen ? "ออกจากโหมดเต็มหน้าจอ" : "สลับโหมดเต็มหน้าจอ"
         );
         if (iconSpan) {
           iconSpan.textContent = isFullscreen ? "🡼" : "⛶";
@@ -761,9 +898,23 @@
 
       function toggleFullscreen() {
         if (!document.fullscreenElement) {
-          document.documentElement.requestFullscreen?.();
+          const request =
+            document.documentElement.requestFullscreen ||
+            document.documentElement.webkitRequestFullscreen ||
+            document.documentElement.mozRequestFullScreen ||
+            document.documentElement.msRequestFullscreen;
+          if (request) {
+            request.call(document.documentElement);
+          }
         } else {
-          document.exitFullscreen?.();
+          const exit =
+            document.exitFullscreen ||
+            document.webkitExitFullscreen ||
+            document.mozCancelFullScreen ||
+            document.msExitFullscreen;
+          if (exit) {
+            exit.call(document);
+          }
         }
       }
 
@@ -781,6 +932,54 @@
         }
       }
 
+      function goTo(index) {
+        const clamped = Math.max(0, Math.min(index, slides.length - 1));
+        if (clamped !== current) {
+          current = clamped;
+          updateSlides();
+        }
+      }
+
+      function toggleOverview() {
+        if (!overviewEl) return;
+        if (overviewEl.classList.contains("is-open")) {
+          overviewEl.classList.remove("is-open");
+          overviewEl.replaceChildren();
+          return;
+        }
+
+        overviewEl.classList.add("is-open");
+        overviewEl.replaceChildren();
+
+        slides.forEach((slide, index) => {
+          const thumb = slide.cloneNode(true);
+          thumb.className =
+            "rounded-2xl bg-white text-slate-900 p-4 shadow-panel translate-x-0 scale-100 pointer-events-auto";
+          thumb.style.minHeight = "200px";
+
+          const heading = document.createElement("div");
+          heading.className = "mb-2 text-xs font-semibold text-slate-600";
+          const title =
+            slide.getAttribute("data-title") || `Slide ${index + 1}`;
+          heading.textContent = `${String(index + 1).padStart(
+            2,
+            "0"
+          )} • ${title}`;
+
+          const wrapper = document.createElement("div");
+          wrapper.className = "cursor-pointer";
+          wrapper.appendChild(heading);
+          wrapper.appendChild(thumb);
+          wrapper.addEventListener("click", () => {
+            overviewEl.classList.remove("is-open");
+            overviewEl.replaceChildren();
+            goTo(index);
+          });
+
+          overviewEl.appendChild(wrapper);
+        });
+      }
+
       document.addEventListener("keydown", (event) => {
         if (event.key === "ArrowRight" || event.key === "PageDown") {
           nextSlide();
@@ -791,6 +990,16 @@
         if ((event.key === "f" || event.key === "F") && !event.metaKey) {
           event.preventDefault();
           toggleFullscreen();
+        }
+        if (event.key === "o" || event.key === "O") {
+          toggleOverview();
+        }
+        if (
+          event.key === "Escape" &&
+          overviewEl &&
+          overviewEl.classList.contains("is-open")
+        ) {
+          toggleOverview();
         }
       });
 
