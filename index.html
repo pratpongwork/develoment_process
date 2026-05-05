@@ -73,6 +73,13 @@
         >
           🔧 Azure DevOps + Git
         </button>
+        <button
+          id="deckBtn2"
+          onclick="switchDeck(2)"
+          class="px-5 py-2.5 rounded-full text-sm font-semibold transition bg-white/10 text-white/70 hover:bg-white/20 hover:text-white"
+        >
+          🐙 Git Workshop
+        </button>
       </div>
 
       <main
@@ -914,6 +921,336 @@
 
           </div><!-- /deck1 -->
 
+          <!-- ============================================================ -->
+          <!-- DECK 2 : Git Workshop                                        -->
+          <!-- ============================================================ -->
+          <div id="deck2" class="hidden">
+
+            <!-- 1 title -->
+            <section class="slide relative flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 pointer-events-auto translate-x-0 md:translate-x-0 scale-100 md:scale-100 z-20">
+              <div class="prose prose-lg prose-slate mx-auto max-w-3xl text-center prose-headings:font-semibold prose-h1:text-5xl prose-h1:leading-tight prose-h2:mt-0 prose-h2:text-3xl prose-p:text-slate-600">
+                <h1>🐙 Git Workshop</h1>
+                <h2><strong>แบบฝึกหัดการใช้ Git ขั้นพื้นฐาน</strong></h2>
+                <p>Banana Coding Co., Ltd. — Pratpong Muaengwong</p>
+              </div>
+            </section>
+
+            <!-- 2 What is Git -->
+            <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="Git คืออะไร">
+              <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1">
+                <h2>🐙 Git คืออะไร?</h2>
+                <p>Git คือ <strong>Version Control System</strong> ที่ช่วยให้ทีมพัฒนาโค้ดร่วมกันได้โดยไม่เขียนทับกัน และย้อนกลับได้ทุกเวลา</p>
+                <ul>
+                  <li>✅ ติดตามการเปลี่ยนแปลงของทุกไฟล์ใน project</li>
+                  <li>✅ ทำงานได้แบบ offline (local repository)</li>
+                  <li>✅ แยกสาย branch ทำงานคู่ขนานได้</li>
+                  <li>✅ ย้อนกลับสถานะโค้ดได้ทุก commit</li>
+                  <li>✅ ใช้ร่วมกับ Azure Repos, GitHub, GitLab ได้ทันที</li>
+                </ul>
+              </div>
+            </section>
+
+            <!-- 3 Key Concepts -->
+            <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="แนวคิดสำคัญ">
+              <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1">
+                <h2>🧠 แนวคิดสำคัญใน Git</h2>
+                <ul>
+                  <li><strong>Repository (Repo)</strong> — โฟลเดอร์โปรเจกต์ที่ Git ดูแล (มีโฟลเดอร์ <code>.git</code> ซ่อนอยู่)</li>
+                  <li><strong>Working Directory</strong> — ไฟล์ที่กำลังแก้ไขอยู่บนเครื่อง</li>
+                  <li><strong>Staging Area (Index)</strong> — พื้นที่เตรียม commit ก่อน (หลัง <code>git add</code>)</li>
+                  <li><strong>Commit</strong> — snapshot ของโค้ด ณ จุดเวลานั้น พร้อม message และ hash</li>
+                  <li><strong>Branch</strong> — สายงานคู่ขนาน แยกออกจาก main เพื่อพัฒนาฟีเจอร์</li>
+                  <li><strong>Remote</strong> — Repository ที่โฮสต์บน cloud เช่น Azure Repos / GitHub</li>
+                </ul>
+              </div>
+            </section>
+
+            <!-- 4 Setup -->
+            <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="Setup">
+              <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-2">
+                <h2>⚙️ ตั้งค่าเริ่มต้น (ทำครั้งเดียว)</h2>
+                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code>git config --global user.name  "ชื่อของคุณ"
+git config --global user.email "email@company.com"
+git config --global core.editor "code --wait"   # VS Code</code></pre>
+                <p>Clone repository จาก Azure Repos:</p>
+                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code>git clone https://dev.azure.com/org/project/_git/repo-name
+cd repo-name</code></pre>
+                <ul>
+                  <li>ตรวจสอบการตั้งค่าด้วย <code>git config --list</code></li>
+                  <li>ดู remote URL ด้วย <code>git remote -v</code></li>
+                </ul>
+              </div>
+            </section>
+
+            <!-- 5 status & log -->
+            <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="status & log">
+              <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-2">
+                <h2>🔍 ดูสถานะและประวัติ</h2>
+                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code>git status                   # ดูไฟล์ที่เปลี่ยนแปลง
+git log --oneline            # ดูประวัติ commit แบบสั้น
+git log --oneline --graph    # ดูประวัติแบบ tree
+git diff                     # ดูการเปลี่ยนแปลง (ยังไม่ stage)
+git diff --staged            # ดูสิ่งที่ stage แล้ว รอ commit</code></pre>
+                <ul>
+                  <li><code>git status</code> ควรรันก่อนเสมอก่อนทำอะไรก็ตาม</li>
+                  <li><code>git log --oneline --graph --all</code> ดูภาพรวม branch ทั้งหมด</li>
+                </ul>
+              </div>
+            </section>
+
+            <!-- 6 add & commit -->
+            <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="add & commit">
+              <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-2">
+                <h2>📝 git add &amp; git commit</h2>
+                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code>git add filename.txt         # stage ไฟล์เดียว
+git add src/                 # stage ทั้งโฟลเดอร์
+git add .                    # stage ทุกอย่างใน working dir
+
+git commit -m "feat: add login page #1234"
+git commit --amend           # แก้ message ของ commit ล่าสุด
+                             # (ใช้ได้เฉพาะก่อน push)</code></pre>
+                <ul>
+                  <li>commit บ่อย ๆ ทีละงานเล็ก ๆ ดีกว่า commit ใหญ่ครั้งเดียว</li>
+                  <li>ใช้รูปแบบ <code>feat: / fix: / chore:</code> นำหน้า message เสมอ</li>
+                </ul>
+              </div>
+            </section>
+
+            <!-- 7 push & pull -->
+            <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="push & pull">
+              <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-2">
+                <h2>⬆️⬇️ git push &amp; git pull</h2>
+                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code>git push origin feature/my-branch    # push branch ขึ้น remote
+git push -u origin feature/my-branch # push + set upstream
+
+git pull origin main                  # ดึงโค้ดล่าสุด + merge
+git pull --rebase origin main         # ดึงล่าสุด + rebase
+git fetch origin                      # ดึง metadata โดยไม่ merge</code></pre>
+                <ul>
+                  <li>ควร <code>git pull origin main</code> ก่อนเริ่มงานทุกวัน</li>
+                  <li><code>git fetch</code> + <code>git log origin/main</code> ดูก่อนว่ามีอะไรใหม่</li>
+                  <li>ห้าม <code>git push --force</code> บน branch ที่คนอื่นใช้ร่วม</li>
+                </ul>
+              </div>
+            </section>
+
+            <!-- 8 branching -->
+            <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="Branching">
+              <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-2">
+                <h2>🌿 การจัดการ Branch</h2>
+                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code>git branch                     # ดู local branches
+git branch -a                  # รวม remote branches
+git checkout -b feature/1234   # สร้าง + checkout branch ใหม่
+git checkout main              # กลับไป main
+git branch -d feature/1234     # ลบ branch (merge แล้วเท่านั้น)
+git branch -D feature/old      # บังคับลบ</code></pre>
+                <ul>
+                  <li>ตั้งชื่อ <code>feature/&lt;id&gt;-description</code>, <code>fix/&lt;id&gt;-description</code></li>
+                  <li>หนึ่ง Task = หนึ่ง Branch เสมอ</li>
+                  <li>ลบ branch ที่ merge แล้วเพื่อไม่ให้รกระบบ</li>
+                </ul>
+              </div>
+            </section>
+
+            <!-- 9 merge -->
+            <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="Merge">
+              <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-2">
+                <h2>🔀 git merge</h2>
+                <p>นำโค้ดจาก branch หนึ่งรวมเข้าอีก branch</p>
+                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code>git checkout main
+git pull origin main          # sync ก่อนเสมอ
+git merge feature/1234        # รวม feature เข้า main
+git push origin main</code></pre>
+                <ul>
+                  <li><strong>Fast-forward merge</strong> — main ไม่มีโค้ดใหม่ → เลื่อน pointer ได้เลย ไม่สร้าง merge commit</li>
+                  <li><strong>3-way merge</strong> — ทั้งสอง branch มีโค้ดใหม่คนละจุด → สร้าง merge commit</li>
+                  <li>ในทีม ปกติ Azure DevOps PR จะทำ merge ให้อัตโนมัติหลัง approve</li>
+                </ul>
+              </div>
+            </section>
+
+            <!-- 10 rebase -->
+            <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="Rebase">
+              <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-2">
+                <h2>🔄 git rebase</h2>
+                <p>ย้ายฐาน commit ของ branch ให้ต่อจาก commit ล่าสุดของ main — ทำให้ประวัติเป็นเส้นตรง</p>
+                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code>git checkout feature/1234
+git rebase main              # ย้ายฐานมาต่อจาก main ล่าสุด
+# (แก้ conflict ถ้ามี แล้วรัน)
+git rebase --continue
+# หรือยกเลิก:
+git rebase --abort</code></pre>
+                <ul>
+                  <li>✅ <strong>ข้อดี</strong>: ประวัติโค้ดเป็นเส้นตรง อ่านง่ายกว่า merge</li>
+                  <li>⚠️ <strong>ข้อควรระวัง</strong>: อย่า rebase branch ที่ push ขึ้น remote แล้วและมีคนอื่น checkout ไปด้วย</li>
+                  <li>💡 ใช้ก่อนเปิด PR เพื่อ sync กับ main ล่าสุด</li>
+                </ul>
+              </div>
+            </section>
+
+            <!-- 11 what is conflict -->
+            <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="Merge Conflict คืออะไร">
+              <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-2">
+                <h2>⚠️ Merge Conflict คืออะไร?</h2>
+                <p>Conflict เกิดเมื่อ 2 branch <strong>แก้ไขบรรทัดเดียวกันของไฟล์เดียวกัน</strong> Git ไม่รู้จะเลือกเวอร์ชันไหน จึงให้เราตัดสินเอง</p>
+                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD  (branch ปัจจุบัน)
+Hello from main branch
+=======
+Hello from feature branch
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/1234</code></pre>
+                <ul>
+                  <li><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> — โค้ดจาก branch ปัจจุบัน</li>
+                  <li><code>=======</code> — เส้นแบ่งระหว่างสองเวอร์ชัน</li>
+                  <li><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/1234</code> — โค้ดจาก branch ที่ merge เข้ามา</li>
+                  <li>Conflict ไม่น่ากลัว — แค่เลือก/รวมโค้ดแล้ว commit ต่อได้เลย</li>
+                </ul>
+              </div>
+            </section>
+
+            <!-- 12 resolve conflict -->
+            <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="แก้ Conflict">
+              <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ol:space-y-2 prose-li:pl-1">
+                <h2>🔧 วิธีแก้ Merge Conflict (Step by Step)</h2>
+                <ol>
+                  <li>รัน <code>git merge feature/1234</code> → พบ conflict</li>
+                  <li>รัน <code>git status</code> → ดูไฟล์ที่มีปัญหา (แสดงว่า <em>both modified</em>)</li>
+                  <li>เปิดไฟล์ที่ conflict → หาเครื่องหมาย <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code></li>
+                  <li>แก้ไขโค้ดให้ถูกต้อง → <strong>ลบ markers ทั้งหมด</strong> (<code>&lt;&lt;&lt;</code>, <code>===</code>, <code>&gt;&gt;&gt;</code>)</li>
+                  <li><code>git add &lt;ไฟล์ที่แก้แล้ว&gt;</code> → mark ว่า resolved</li>
+                  <li><code>git commit -m "merge: resolve conflict in login.ts"</code> → จบ!</li>
+                </ol>
+                <p>💡 VS Code มีปุ่ม <strong>"Accept Current / Incoming / Both"</strong> ช่วยให้แก้ conflict ได้สะดวกขึ้นมาก</p>
+              </div>
+            </section>
+
+            <!-- 13 stash -->
+            <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="git stash">
+              <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-2">
+                <h2>📦 git stash — เก็บงานค้างชั่วคราว</h2>
+                <p>ใช้เมื่อต้องสลับ branch กะทันหันแต่งานยังไม่พร้อม commit</p>
+                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code>git stash                           # เก็บงานทั้งหมดไว้ก่อน
+git stash push -m "WIP: login form" # เก็บพร้อมชื่อกำกับ
+git stash list                      # ดูรายการ stash ทั้งหมด
+git stash pop                       # นำงานล่าสุดกลับมา + ลบออก
+git stash apply stash@{1}           # นำ stash ที่ระบุกลับมา
+git stash drop                      # ลบ stash ล่าสุดทิ้ง
+git stash clear                     # ลบ stash ทั้งหมด</code></pre>
+                <ul>
+                  <li>ถ้ามีหลาย stash ให้ใช้ชื่อกำกับ <code>-m</code> ทุกครั้ง</li>
+                </ul>
+              </div>
+            </section>
+
+            <!-- 14 useful commands -->
+            <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="Commands เพิ่มเติม">
+              <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-2">
+                <h2>🛠️ Commands ที่ต้องรู้เพิ่มเติม</h2>
+                <ul>
+                  <li><code>git reset HEAD~1</code> — ย้อน commit ล่าสุดกลับเป็น staged (โค้ดยังอยู่)</li>
+                  <li><code>git reset --hard HEAD~1</code> — ย้อนและทิ้งโค้ดด้วย ⚠️ ระวัง!</li>
+                  <li><code>git revert &lt;hash&gt;</code> — สร้าง commit ใหม่เพื่อย้อนผล (ปลอดภัยกว่าบน shared branch)</li>
+                  <li><code>git cherry-pick &lt;hash&gt;</code> — เอา commit เดียวจาก branch อื่นมาใช้</li>
+                  <li><code>git blame filename.txt</code> — ดูว่าแต่ละบรรทัดแก้โดยใคร เมื่อไร</li>
+                  <li><code>git show &lt;hash&gt;</code> — ดูรายละเอียดของ commit นั้น</li>
+                  <li><code>git tag v1.0.0</code> — สร้าง tag เพื่อระบุ version</li>
+                </ul>
+              </div>
+            </section>
+
+            <!-- 15 workshop overview -->
+            <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="Workshop Overview">
+              <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3 prose-li:pl-1">
+                <h2>🧪 แบบฝึกหัด Git Workshop</h2>
+                <p>ทำครบ 3 exercises เพื่อฝึกสถานการณ์จริงในทีม:</p>
+                <ul>
+                  <li>🏋️ <strong>Exercise 1</strong> — Clone, สร้าง Branch, Commit, Push <em>(~15 นาที)</em></li>
+                  <li>🏋️ <strong>Exercise 2</strong> — Merge Branch เข้า main <em>(~10 นาที)</em></li>
+                  <li>🏋️ <strong>Exercise 3</strong> — จำลองและแก้ Merge Conflict <em>(~20 นาที)</em></li>
+                </ul>
+                <p>📁 ใช้ Repository: <code>git-workshop-[ชื่อของคุณ]</code> บน Azure Repos ที่เตรียมไว้</p>
+              </div>
+            </section>
+
+            <!-- 16 exercise 1 -->
+            <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="Exercise 1">
+              <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-2">
+                <h2>🏋️ Exercise 1 — First Branch &amp; Commit</h2>
+                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code># 1. Clone repo จาก Azure Repos
+git clone &lt;url-จาก-Azure-Repos&gt;
+cd git-workshop
+
+# 2. สร้าง branch ใหม่ด้วยชื่อตัวเอง
+git checkout -b feature/your-name-intro
+
+# 3. สร้างไฟล์แนะนำตัว
+echo "Hi! My name is ..." > introduce.txt
+
+# 4. Commit และ push ขึ้น remote
+git add introduce.txt
+git commit -m "feat: add introduction for your-name"
+git push origin feature/your-name-intro</code></pre>
+                <p>✅ <strong>เป้าหมาย</strong>: เห็น branch ของตัวเองปรากฏบน Azure Repos</p>
+              </div>
+            </section>
+
+            <!-- 17 exercise 2 -->
+            <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="Exercise 2">
+              <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-2">
+                <h2>🏋️ Exercise 2 — Merge Branch</h2>
+                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code># 1. สลับกลับ main และ sync
+git checkout main
+git pull origin main
+
+# 2. Merge branch ของตัวเองเข้า main
+git merge feature/your-name-intro
+
+# 3. ดูประวัติแบบ graph
+git log --oneline --graph
+
+# 4. Push main (หรือเปิด PR บน Azure DevOps)
+git push origin main</code></pre>
+                <p>✅ <strong>เป้าหมาย</strong>: เข้าใจกระบวนการ merge และดู commit graph ว่าเส้นรวมกันอย่างไร</p>
+              </div>
+            </section>
+
+            <!-- 18 exercise 3 -->
+            <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="Exercise 3">
+              <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-2">
+                <h2>🏋️ Exercise 3 — Simulate &amp; Resolve Conflict</h2>
+                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code># คนที่ 1 — แก้ shared.txt บน branch-A
+git checkout -b conflict-branch-A
+echo "Version from A" > shared.txt
+git add . && git commit -m "feat: update shared from A"
+git push origin conflict-branch-A
+
+# คนที่ 2 — แก้ shared.txt เดียวกันบน branch-B
+git checkout main && git checkout -b conflict-branch-B
+echo "Version from B" > shared.txt
+git add . && git commit -m "feat: update shared from B"
+git push origin conflict-branch-B
+
+# Merge A เข้า main → สำเร็จ ✅
+# Merge B เข้า main → CONFLICT! ❌  แก้แล้ว commit ต่อ</code></pre>
+                <p>✅ <strong>เป้าหมาย</strong>: เข้าใจว่า conflict เกิดอย่างไร และแก้ได้ด้วยตัวเองโดยไม่ตื่นตระหนก</p>
+              </div>
+            </section>
+
+            <!-- 19 summary -->
+            <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="สรุป">
+              <div class="prose prose-lg prose-slate mx-auto max-w-3xl text-center prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3">
+                <h2>🎉 สรุป Git Basics</h2>
+                <ul class="text-left">
+                  <li>🔁 <strong>Daily flow</strong>: pull → branch → add → commit → push → PR</li>
+                  <li>🔀 <strong>merge</strong> รวมโค้ด, <strong>rebase</strong> จัดเรียงประวัติใหม่ให้เป็นเส้นตรง</li>
+                  <li>⚠️ <strong>Conflict ไม่น่ากลัว</strong> — เปิดไฟล์ แก้ markers แล้ว <code>git add</code> + commit ต่อได้เลย</li>
+                  <li>📦 <strong>stash</strong> ช่วยเมื่อต้องสลับงานกะทันหันโดยที่งานยังไม่เสร็จ</li>
+                  <li>🚫 ทุก PR ต้องมาจาก <strong>branch เสมอ</strong> — ห้าม push ตรง main</li>
+                </ul>
+              </div>
+            </section>
+
+          </div><!-- /deck2 -->
+
         </div>
       </main>
 
@@ -976,7 +1313,7 @@
     <script>
       // ── Deck management ────────────────────────────────────────────────
       let activeDeck = 0;
-      const deckPositions = [0, 0];
+      const deckPositions = [0, 0, 0];
 
       const ACTIVE_BTN  = "px-5 py-2.5 rounded-full text-sm font-semibold transition bg-sky-500 text-white shadow-lg";
       const INACTIVE_BTN = "px-5 py-2.5 rounded-full text-sm font-semibold transition bg-white/10 text-white/70 hover:bg-white/20 hover:text-white";
