@@ -523,7 +523,9 @@
                   <li><strong>Trunk-based (แนะนำ):</strong> main เสถียร, feature branches สั้น, PR เล็ก, CI เข้ม</li>
                   <li><strong>GitFlow:</strong> ใช้เมื่อมี release cadence ชัดเจนและหลายสภาพแวดล้อม</li>
                   <li>ตั้ง <em>naming</em> มาตรฐาน เช่น <code>feature/</code>, <code>fix/</code>, <code>release/</code></li>
-                  <li>ไม่ push ตรง main; ใช้ PR + Review + CI เท่านั้น</li>
+                  <li>🚫 ห้าม push code ตรงเข้า <strong>main</strong> หรือ <strong>develop</strong> เด็ดขาด</li>
+                  <li>✅ แตก branch จาก <strong>develop</strong> เสมอ ไม่แตกจาก main</li>
+                  <li>✅ การ merge ทุกครั้งต้องทำผ่าน <strong>PR เท่านั้น</strong> พร้อม Review + CI</li>
                 </ul>
               </div>
             </section>
@@ -768,8 +770,8 @@
                 <h2>🔀 Git Workflow ในการทำงานจริง</h2>
                 <ul>
                   <li>1️⃣ <strong>รับ Task</strong> → อ่าน Description และ Acceptance Criteria ให้ครบ</li>
-                  <li>2️⃣ <strong>อัปเดตโค้ดล่าสุด</strong> → <code>git pull origin main</code></li>
-                  <li>3️⃣ <strong>สร้าง Branch ใหม่</strong> → <code>git checkout -b feature/1234-task-name</code></li>
+                  <li>2️⃣ <strong>อัปเดตโค้ดล่าสุด</strong> → <code>git pull origin develop</code></li>
+                  <li>3️⃣ <strong>สร้าง Branch จาก develop</strong> → <code>git checkout -b feature/1234-task-name</code></li>
                   <li>4️⃣ <strong>เขียนโค้ด</strong> → แก้ไขตาม Task, ทดสอบบนเครื่องก่อน</li>
                   <li>5️⃣ <strong>Commit</strong> → <code>git add .</code> แล้ว <code>git commit -m "feat: ..."</code></li>
                   <li>6️⃣ <strong>Push ขึ้น Remote</strong> → <code>git push origin feature/1234-task-name</code></li>
@@ -784,7 +786,7 @@
                 <h2>💻 Git Commands ที่ใช้บ่อย</h2>
                 <ul>
                   <li><code>git clone &lt;url&gt;</code> — โคลน Repository มาที่เครื่อง (ทำครั้งแรกครั้งเดียว)</li>
-                  <li><code>git pull origin main</code> — ดึงโค้ดล่าสุดจาก Remote</li>
+                  <li><code>git pull origin develop</code> — ดึงโค้ดล่าสุดจาก develop ก่อนเริ่มงานทุกวัน</li>
                   <li><code>git checkout -b feature/xxx</code> — สร้างและสลับไป Branch ใหม่</li>
                   <li><code>git status</code> — ดูสถานะไฟล์ที่เปลี่ยนแปลง</li>
                   <li><code>git add .</code> — Stage ไฟล์ทั้งหมด (หรือระบุชื่อไฟล์)</li>
@@ -809,7 +811,9 @@
                 </ul>
                 <p><strong>กฎสำคัญ:</strong></p>
                 <ul>
-                  <li>ห้าม push ตรงไปที่ <strong>main</strong> หรือ <strong>develop</strong></li>
+                  <li>🚫 <strong>ห้าม push code ตรงเข้า main หรือ develop เด็ดขาด</strong></li>
+                  <li>✅ แตก branch จาก <strong>develop เสมอ</strong> ไม่แตกจาก main</li>
+                  <li>✅ การ merge ทุกครั้งต้องทำผ่าน <strong>PR เท่านั้น</strong> ห้าม merge ตรงบน command line</li>
                   <li>Branch ควรมีอายุสั้น → Merge กลับภายใน Sprint</li>
                   <li>ลบ Branch ที่ Merge แล้วเสมอ เพื่อไม่ให้รก</li>
                 </ul>
@@ -1020,16 +1024,17 @@ git commit --amend           # แก้ message ของ commit ล่าส�
             <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="push & pull">
               <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-2">
                 <h2>⬆️⬇️ git push &amp; git pull</h2>
-                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code>git push origin feature/my-branch    # push branch ขึ้น remote
+                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code>git push origin feature/my-branch    # push feature branch ขึ้น remote
 git push -u origin feature/my-branch # push + set upstream
 
-git pull origin main                  # ดึงโค้ดล่าสุด + merge
-git pull --rebase origin main         # ดึงล่าสุด + rebase
+git pull origin develop               # ดึงโค้ดล่าสุดจาก develop + merge
+git pull --rebase origin develop      # ดึงล่าสุด + rebase
 git fetch origin                      # ดึง metadata โดยไม่ merge</code></pre>
                 <ul>
-                  <li>ควร <code>git pull origin main</code> ก่อนเริ่มงานทุกวัน</li>
-                  <li><code>git fetch</code> + <code>git log origin/main</code> ดูก่อนว่ามีอะไรใหม่</li>
-                  <li>ห้าม <code>git push --force</code> บน branch ที่คนอื่นใช้ร่วม</li>
+                  <li>✅ ควร <code>git pull origin develop</code> ก่อนเริ่มงานทุกวัน</li>
+                  <li>🚫 ห้าม <code>git push origin main</code> หรือ <code>git push origin develop</code> โดยตรง</li>
+                  <li>🚫 ห้าม <code>git push --force</code> บน branch ที่คนอื่นใช้ร่วม</li>
+                  <li><code>git fetch</code> + <code>git log origin/develop</code> ดูก่อนว่ามีอะไรใหม่</li>
                 </ul>
               </div>
             </section>
@@ -1038,14 +1043,17 @@ git fetch origin                      # ดึง metadata โดยไม่ me
             <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="Branching">
               <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-2">
                 <h2>🌿 การจัดการ Branch</h2>
-                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code>git branch                     # ดู local branches
+                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code>git checkout develop           # ไปที่ develop ก่อนเสมอ
+git pull origin develop        # sync develop ล่าสุด
+git checkout -b feature/1234   # สร้าง branch จาก develop
+
+git branch                     # ดู local branches
 git branch -a                  # รวม remote branches
-git checkout -b feature/1234   # สร้าง + checkout branch ใหม่
-git checkout main              # กลับไป main
 git branch -d feature/1234     # ลบ branch (merge แล้วเท่านั้น)
 git branch -D feature/old      # บังคับลบ</code></pre>
                 <ul>
-                  <li>ตั้งชื่อ <code>feature/&lt;id&gt;-description</code>, <code>fix/&lt;id&gt;-description</code></li>
+                  <li>🚫 <strong>ห้าม push ตรงเข้า main หรือ develop</strong> — ทุก merge ต้องผ่าน PR</li>
+                  <li>✅ แตก branch จาก <strong>develop เสมอ</strong> ตั้งชื่อ <code>feature/&lt;id&gt;-description</code>, <code>fix/&lt;id&gt;-description</code></li>
                   <li>หนึ่ง Task = หนึ่ง Branch เสมอ</li>
                   <li>ลบ branch ที่ merge แล้วเพื่อไม่ให้รกระบบ</li>
                 </ul>
@@ -1055,16 +1063,24 @@ git branch -D feature/old      # บังคับลบ</code></pre>
             <!-- 9 merge -->
             <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="Merge">
               <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-2">
-                <h2>🔀 git merge</h2>
-                <p>นำโค้ดจาก branch หนึ่งรวมเข้าอีก branch</p>
-                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code>git checkout main
-git pull origin main          # sync ก่อนเสมอ
-git merge feature/1234        # รวม feature เข้า main
-git push origin main</code></pre>
+                <h2>🔀 git merge — ต้องทำผ่าน PR เท่านั้น</h2>
+                <p>การ merge เข้า <strong>develop</strong> หรือ <strong>main</strong> ต้องทำผ่าน Pull Request เสมอ <strong>ห้าม merge ตรงบน command line</strong></p>
+                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code># ✅ Flow ที่ถูกต้อง
+git checkout develop
+git pull origin develop        # sync develop ล่าสุด
+git checkout -b feature/1234   # แตก branch จาก develop
+# ...เขียนโค้ด commit...
+git push origin feature/1234   # push feature branch
+# → เปิด PR บน Azure DevOps: feature/1234 → develop
+
+# 🚫 ห้ามทำ
+# git checkout develop
+# git merge feature/1234       # ← ห้าม merge ตรง
+# git push origin develop      # ← ห้าม push ตรง</code></pre>
                 <ul>
-                  <li><strong>Fast-forward merge</strong> — main ไม่มีโค้ดใหม่ → เลื่อน pointer ได้เลย ไม่สร้าง merge commit</li>
-                  <li><strong>3-way merge</strong> — ทั้งสอง branch มีโค้ดใหม่คนละจุด → สร้าง merge commit</li>
-                  <li>ในทีม ปกติ Azure DevOps PR จะทำ merge ให้อัตโนมัติหลัง approve</li>
+                  <li><strong>Fast-forward merge</strong> — develop ไม่มีโค้ดใหม่ → pointer เลื่อนไปเลย ไม่สร้าง merge commit</li>
+                  <li><strong>3-way merge</strong> — มีโค้ดใหม่คนละจุด → สร้าง merge commit</li>
+                  <li>Azure DevOps จะทำ merge ให้อัตโนมัติหลัง approve + CI ผ่าน</li>
                 </ul>
               </div>
             </section>
@@ -1073,9 +1089,9 @@ git push origin main</code></pre>
             <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="Rebase">
               <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-2">
                 <h2>🔄 git rebase</h2>
-                <p>ย้ายฐาน commit ของ branch ให้ต่อจาก commit ล่าสุดของ main — ทำให้ประวัติเป็นเส้นตรง</p>
+                <p>ย้ายฐาน commit ของ branch ให้ต่อจาก commit ล่าสุดของ develop — ทำให้ประวัติเป็นเส้นตรง</p>
                 <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code>git checkout feature/1234
-git rebase main              # ย้ายฐานมาต่อจาก main ล่าสุด
+git rebase develop           # ย้ายฐานมาต่อจาก develop ล่าสุด
 # (แก้ conflict ถ้ามี แล้วรัน)
 git rebase --continue
 # หรือยกเลิก:
@@ -1179,37 +1195,45 @@ git stash clear                     # ลบ stash ทั้งหมด</code><
 git clone &lt;url-จาก-Azure-Repos&gt;
 cd git-workshop
 
-# 2. สร้าง branch ใหม่ด้วยชื่อตัวเอง
+# 2. Sync develop ล่าสุดก่อนเสมอ
+git checkout develop
+git pull origin develop
+
+# 3. แตก branch จาก develop (ไม่ใช่ main!)
 git checkout -b feature/your-name-intro
 
-# 3. สร้างไฟล์แนะนำตัว
+# 4. สร้างไฟล์แนะนำตัว
 echo "Hi! My name is ..." > introduce.txt
 
-# 4. Commit และ push ขึ้น remote
+# 5. Commit และ push feature branch ขึ้น remote
 git add introduce.txt
 git commit -m "feat: add introduction for your-name"
-git push origin feature/your-name-intro</code></pre>
-                <p>✅ <strong>เป้าหมาย</strong>: เห็น branch ของตัวเองปรากฏบน Azure Repos</p>
+git push origin feature/your-name-intro
+# → เปิด PR: feature/your-name-intro → develop</code></pre>
+                <p>✅ <strong>เป้าหมาย</strong>: เห็น branch ของตัวเองปรากฏบน Azure Repos และเปิด PR ไปหา develop ได้</p>
               </div>
             </section>
 
             <!-- 17 exercise 2 -->
             <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="Exercise 2">
               <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-2">
-                <h2>🏋️ Exercise 2 — Merge Branch</h2>
-                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code># 1. สลับกลับ main และ sync
-git checkout main
-git pull origin main
+                <h2>🏋️ Exercise 2 — Merge ผ่าน Pull Request</h2>
+                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code># 1. ตรวจสอบว่า push feature branch ขึ้น remote แล้ว
+git push origin feature/your-name-intro
 
-# 2. Merge branch ของตัวเองเข้า main
-git merge feature/your-name-intro
+# 2. เปิด PR บน Azure DevOps
+#    Repos → Pull Requests → New Pull Request
+#    Source : feature/your-name-intro
+#    Target : develop   ← (ไม่ใช่ main!)
+#    เพิ่ม Reviewer และ Link Work Item แล้วกด Create
 
-# 3. ดูประวัติแบบ graph
-git log --oneline --graph
+# 3. หลัง approve → กด Complete (Merge) บน Azure DevOps
 
-# 4. Push main (หรือเปิด PR บน Azure DevOps)
-git push origin main</code></pre>
-                <p>✅ <strong>เป้าหมาย</strong>: เข้าใจกระบวนการ merge และดู commit graph ว่าเส้นรวมกันอย่างไร</p>
+# 4. ดูผลลัพธ์หลัง merge
+git checkout develop
+git pull origin develop
+git log --oneline --graph</code></pre>
+                <p>✅ <strong>เป้าหมาย</strong>: เข้าใจว่าการ merge ต้องผ่าน PR เสมอ และดู commit graph หลัง merge</p>
               </div>
             </section>
 
@@ -1217,20 +1241,22 @@ git push origin main</code></pre>
             <section class="slide absolute inset-0 flex min-h-[70vh] transform-gpu flex-col justify-center gap-8 rounded-[32px] bg-white/95 p-8 text-slate-900 shadow-panel ring-1 ring-white/70 backdrop-blur transition-transform duration-[1000ms] ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform sm:p-12 md:p-16 z-0 pointer-events-none translate-x-full md:translate-x-full scale-95 md:scale-95" data-title="Exercise 3">
               <div class="prose prose-lg prose-slate max-w-3xl prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-2">
                 <h2>🏋️ Exercise 3 — Simulate &amp; Resolve Conflict</h2>
-                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code># คนที่ 1 — แก้ shared.txt บน branch-A
+                <pre class="rounded-xl bg-slate-800 text-slate-100 text-sm p-4 leading-relaxed not-prose overflow-x-auto"><code># คนที่ 1 — แตก branch-A จาก develop แล้วแก้ shared.txt
+git checkout develop && git pull origin develop
 git checkout -b conflict-branch-A
 echo "Version from A" > shared.txt
 git add . && git commit -m "feat: update shared from A"
 git push origin conflict-branch-A
+# → เปิด PR: conflict-branch-A → develop → Approve & Merge
 
-# คนที่ 2 — แก้ shared.txt เดียวกันบน branch-B
-git checkout main && git checkout -b conflict-branch-B
+# คนที่ 2 — แตก branch-B จาก develop แล้วแก้ shared.txt เดียวกัน
+git checkout develop && git pull origin develop
+git checkout -b conflict-branch-B
 echo "Version from B" > shared.txt
 git add . && git commit -m "feat: update shared from B"
 git push origin conflict-branch-B
-
-# Merge A เข้า main → สำเร็จ ✅
-# Merge B เข้า main → CONFLICT! ❌  แก้แล้ว commit ต่อ</code></pre>
+# → เปิด PR: conflict-branch-B → develop → พบ CONFLICT! ❌
+# → แก้ conflict บน branch-B → push → PR ผ่าน ✅</code></pre>
                 <p>✅ <strong>เป้าหมาย</strong>: เข้าใจว่า conflict เกิดอย่างไร และแก้ได้ด้วยตัวเองโดยไม่ตื่นตระหนก</p>
               </div>
             </section>
@@ -1240,11 +1266,12 @@ git push origin conflict-branch-B
               <div class="prose prose-lg prose-slate mx-auto max-w-3xl text-center prose-headings:font-semibold prose-h2:text-3xl prose-p:text-slate-600 prose-ul:space-y-3">
                 <h2>🎉 สรุป Git Basics</h2>
                 <ul class="text-left">
-                  <li>🔁 <strong>Daily flow</strong>: pull → branch → add → commit → push → PR</li>
-                  <li>🔀 <strong>merge</strong> รวมโค้ด, <strong>rebase</strong> จัดเรียงประวัติใหม่ให้เป็นเส้นตรง</li>
+                  <li>🔁 <strong>Daily flow</strong>: <code>pull develop</code> → แตก branch → code → commit → push → เปิด PR</li>
+                  <li>🔀 <strong>merge</strong> รวมโค้ด, <strong>rebase</strong> จัดเรียงประวัติให้เป็นเส้นตรง</li>
                   <li>⚠️ <strong>Conflict ไม่น่ากลัว</strong> — เปิดไฟล์ แก้ markers แล้ว <code>git add</code> + commit ต่อได้เลย</li>
                   <li>📦 <strong>stash</strong> ช่วยเมื่อต้องสลับงานกะทันหันโดยที่งานยังไม่เสร็จ</li>
-                  <li>🚫 ทุก PR ต้องมาจาก <strong>branch เสมอ</strong> — ห้าม push ตรง main</li>
+                  <li>🚫 <strong>ห้าม push ตรงเข้า main หรือ develop</strong> — ทุก merge ต้องผ่าน PR เท่านั้น</li>
+                  <li>✅ <strong>แตก branch จาก develop เสมอ</strong> — ไม่แตกจาก main</li>
                 </ul>
               </div>
             </section>
